@@ -21,7 +21,7 @@ object RetrofitHelper {
     ): Retrofit {
 
         val okHttpClientBuilder = OkHttpClient.Builder()
-            .addInterceptor(RetryInterceptor(maxRetries = 4, backoffFactor = 1000L))
+            .addInterceptor(RetryInterceptor(maxRetries = 4, backoffFactor = 15001L))
             .addInterceptor(loggingInterceptor)
         additionalInterceptors.forEach { okHttpClientBuilder.addInterceptor(it) }
         val okHttpClient = okHttpClientBuilder.build()
