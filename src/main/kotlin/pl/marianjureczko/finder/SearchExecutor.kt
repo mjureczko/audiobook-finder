@@ -1,10 +1,10 @@
 package pl.marianjureczko.finder
 
-import pl.marianjureczko.finder.storytell.StorytellFinder
+import pl.marianjureczko.finder.port.storytell.StorytellFinder
 import kotlinx.coroutines.*
-import pl.marianjureczko.finder.audible.AudibleFinder
-import pl.marianjureczko.finder.bookbeat.BookbeatFinder
-import pl.marianjureczko.finder.legimi.LegimiFinder
+import pl.marianjureczko.finder.port.audible.AudibleFinder
+import pl.marianjureczko.finder.port.bookbeat.BookbeatFinder
+import pl.marianjureczko.finder.port.legimi.LegimiFinder
 
 interface BookResultsHandler {
     fun consume(title: String, results: List<Found>)

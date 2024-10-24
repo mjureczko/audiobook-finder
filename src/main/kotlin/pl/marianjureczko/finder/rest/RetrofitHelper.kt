@@ -3,27 +3,33 @@ package pl.marianjureczko.finder.rest
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object RetrofitHelper {
 
-    val loggingInterceptor: Interceptor = HttpLoggingInterceptor().apply {
+    private val loggingInterceptor: Interceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(RetryInterceptor(maxRetries = 4, backoffFactor = 1000L))
-        .addInterceptor(loggingInterceptor)
-        .build()
+    fun getRetrofitClient(
+        baseUrl: String,
+        additionalInterceptors: List<Interceptor> = emptyList(),
+        converterFactory: Converter.Factory = GsonConverterFactory.create()
+    ): Retrofit {
 
-    fun getRetrofitClient(baseUrl: String): Retrofit {
+        val okHttpClientBuilder = OkHttpClient.Builder()
+            .addInterceptor(RetryInterceptor(maxRetries = 4, backoffFactor = 1000L))
+            .addInterceptor(loggingInterceptor)
+        additionalInterceptors.forEach { okHttpClientBuilder.addInterceptor(it) }
+        val okHttpClient = okHttpClientBuilder.build()
+
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-//            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(converterFactory)
             .build()
     }
 }
