@@ -4,13 +4,14 @@ import pl.marianjureczko.finder.storytell.StorytellFinder
 import kotlinx.coroutines.*
 import pl.marianjureczko.finder.audible.AudibleFinder
 import pl.marianjureczko.finder.bookbeat.BookbeatFinder
+import pl.marianjureczko.finder.legimi.LegimiFinder
 
 interface BookResultsHandler {
     fun consume(title: String, results: List<Found>)
 }
 
 class SearchExecutor {
-    val finders: List<Finder> = listOf(StorytellFinder(), BookbeatFinder(), AudibleFinder())
+    val finders: List<Finder> = listOf(StorytellFinder(), BookbeatFinder(), AudibleFinder(), LegimiFinder())
 
     fun sourceTypes(): List<String> = finders.flatMap { it.sourceTypes() }
 
