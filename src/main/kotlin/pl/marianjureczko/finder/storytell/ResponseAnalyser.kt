@@ -1,5 +1,6 @@
 package pl.marianjureczko.finder.storytell
 
+import pl.marianjureczko.finder.npl.SIMILARITY_THRESHOLD
 import pl.marianjureczko.finder.npl.TitleComparator
 
 class ResponseAnalyser {
@@ -14,7 +15,7 @@ class ResponseAnalyser {
             resultBody.items
                         .filter { item -> ACCEPTED_LANGUAGES.contains(item.language) }
                         .map { item -> item to titleComparator.similarity(item.title, title) }
-                        .filter { (_, similarity) -> similarity > 0.949 }
+                        .filter { (_, similarity) -> similarity > SIMILARITY_THRESHOLD }
                         .maxByOrNull { (_, similarity) -> similarity }?.first?.shareUrl ?: ""
         }
     }

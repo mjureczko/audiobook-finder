@@ -3,6 +3,7 @@ package pl.marianjureczko.finder.npl
 import opennlp.tools.stemmer.PorterStemmer
 import opennlp.tools.tokenize.SimpleTokenizer
 
+const val SIMILARITY_THRESHOLD = 0.949
 class TitleComparator {
 
     private val EN_STOP_WORDS = setOf(

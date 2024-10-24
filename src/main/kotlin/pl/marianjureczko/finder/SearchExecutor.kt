@@ -2,13 +2,14 @@ package pl.marianjureczko.finder
 
 import pl.marianjureczko.finder.storytell.StorytellFinder
 import kotlinx.coroutines.*
+import pl.marianjureczko.finder.bookbeat.BookbeatFinder
 
 interface BookResultsHandler {
     fun consume(title: String, results: List<Found>)
 }
 
 class SearchExecutor {
-    val finders: List<Finder> = listOf(StorytellFinder())
+    val finders: List<Finder> = listOf(StorytellFinder(), BookbeatFinder())
 
     fun sourceTypes(): List<String> = finders.flatMap { it.sourceTypes() }
 
