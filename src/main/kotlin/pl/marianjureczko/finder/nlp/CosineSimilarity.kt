@@ -1,4 +1,4 @@
-package pl.marianjureczko.finder.npl
+package pl.marianjureczko.finder.nlp
 
 import org.apache.commons.math3.linear.ArrayRealVector
 import org.apache.commons.math3.linear.RealVector

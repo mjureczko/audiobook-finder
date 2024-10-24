@@ -1,4 +1,4 @@
-package pl.marianjureczko.finder.npl
+package pl.marianjureczko.finder.nlp
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

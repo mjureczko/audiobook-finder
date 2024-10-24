@@ -1,7 +1,7 @@
 package pl.marianjureczko.finder.storytell
 
-import pl.marianjureczko.finder.npl.SIMILARITY_THRESHOLD
-import pl.marianjureczko.finder.npl.TitleComparator
+import pl.marianjureczko.finder.nlp.SIMILARITY_THRESHOLD
+import pl.marianjureczko.finder.nlp.TitleComparator
 
 class ResponseAnalyser {
 

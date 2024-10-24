@@ -9,11 +9,11 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object RetrofitHelper {
 
-    private val loggingInterceptor: Interceptor = HttpLoggingInterceptor().apply {
+    val loggingInterceptor: Interceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val okHttpClient = OkHttpClient.Builder()
+    val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(RetryInterceptor(maxRetries = 4, backoffFactor = 1000L))
         .addInterceptor(loggingInterceptor)
         .build()

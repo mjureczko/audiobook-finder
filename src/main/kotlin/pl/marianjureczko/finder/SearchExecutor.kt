@@ -2,6 +2,7 @@ package pl.marianjureczko.finder
 
 import pl.marianjureczko.finder.storytell.StorytellFinder
 import kotlinx.coroutines.*
+import pl.marianjureczko.finder.audible.AudibleFinder
 import pl.marianjureczko.finder.bookbeat.BookbeatFinder
 
 interface BookResultsHandler {
@@ -9,7 +10,7 @@ interface BookResultsHandler {
 }
 
 class SearchExecutor {
-    val finders: List<Finder> = listOf(StorytellFinder(), BookbeatFinder())
+    val finders: List<Finder> = listOf(StorytellFinder(), BookbeatFinder(), AudibleFinder())
 
     fun sourceTypes(): List<String> = finders.flatMap { it.sourceTypes() }
 
