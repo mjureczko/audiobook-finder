@@ -12,9 +12,10 @@ class RetryInterceptor( private val maxRetries: Int, private val backoffFactor: 
 
         while (true) {
             response = chain.proceed(chain.request())
-            if (response.isSuccessful) {
+            if (response.isSuccessful || response.code in 400..499) {
                 return response
             }
+            response.close()
             attempt++
             if (attempt > maxRetries) {
                 throw IOException("Max retries reached")

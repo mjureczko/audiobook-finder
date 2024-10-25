@@ -24,6 +24,7 @@ abstract class FinderTemplate<T>(
                 return errorResponse()
             }
         } catch (e: Exception) {
+            e.printStackTrace()
             return errorResponse()
         }
     }

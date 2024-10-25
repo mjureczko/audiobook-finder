@@ -5,12 +5,13 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface AudiotekaApi {
-    companion object{
+    companion object {
         const val BASE_URL = "https://audioteka.com"
     }
 
-    @GET("/_next/data/BfNOp8uNvnVOhpgXbuYri/pl/szukaj/{query}.json")
+    @GET("/_next/data/{hash}/pl/szukaj/{query}.json")
     fun searchBookByTitle(
-        @Path("query") query:String
+        @Path("hash") hash: String,
+        @Path("query") query: String
     ): Call<AudiotekaResponse>
 }

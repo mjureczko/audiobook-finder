@@ -17,8 +17,11 @@ fun extractTitles(): List<String> {
     val htmlContent: String = File("books.html").readText()
     val regex = Regex("""<label>title<\/label>.*?<a title="(.*?)"""")
     val matches = regex.findAll(htmlContent)
-    return matches.map { it.groupValues[1] }.toList()
+    return matches
+        .map { it.groupValues[1].replace(Regex("&[a-zA-Z]{1,5};"), "") }
+        .toList()
 }
+
 
 fun saveToCsv(extractedTitles: List<String>) {
     val fileName = "books.csv"

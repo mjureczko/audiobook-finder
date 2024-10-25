@@ -8,13 +8,15 @@ import retrofit2.Retrofit
 const val AUDIOTEKA = "Audioteka"
 const val KLUB = "Audioteka Klub"
 
+const val HASH = "xknZCZyk7C6fJUtsj2RIX"
+
 class AudiotekaFinder : FinderTemplate<AudiotekaResponse>(listOf(AUDIOTEKA, KLUB)) {
 
     private val retrofit: Retrofit = RetrofitHelper.getRetrofitClient(AudiotekaApi.BASE_URL)
     private val api: AudiotekaApi = retrofit.create(AudiotekaApi::class.java)
     private val responseAnalyser: AudiotekaResponseAnalyser = AudiotekaResponseAnalyser()
 
-    override fun getRestCall(title: String): Call<AudiotekaResponse> = api.searchBookByTitle(title)
+    override fun getRestCall(title: String): Call<AudiotekaResponse> = api.searchBookByTitle(HASH, title)
 
     override fun analyseResponse(resultBody: AudiotekaResponse, title: String, sourceType: String): String =
         responseAnalyser.execute(resultBody, title, KLUB == sourceType)
