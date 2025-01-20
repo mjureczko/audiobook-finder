@@ -31,7 +31,7 @@ However, testing with 100 books completed without errors.
 2. Create a `books.csv` file with book titles, one per line in the project root directory.
 3. Update audioteka hash (see above)
 4. Run Audiobook Finder (execute `App.kt` from you IDE).
-5 Open `search.csv` to view platform availability for each title.
+5. Open `search.csv` to view platform availability for each title.
 
 ## License
 
