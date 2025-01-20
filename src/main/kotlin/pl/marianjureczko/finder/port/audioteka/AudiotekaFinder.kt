@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 const val AUDIOTEKA = "Audioteka"
 const val KLUB = "Audioteka Klub"
 
-const val HASH = "xknZCZyk7C6fJUtsj2RIX"
+const val HASH = "EzdYx0R7T-D-7N8oXrygH"
 
 class AudiotekaFinder : FinderTemplate<AudiotekaResponse>(listOf(AUDIOTEKA, KLUB)) {
 
