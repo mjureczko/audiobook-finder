@@ -24,21 +24,18 @@ class SearchExecutor {
 
     fun sourceTypes(): List<String> = finders.flatMap { it.sourceTypes() }
 
-    fun execute(titles: List<String>, consumer: BookResultsHandler) {
-        titles.forEach { title ->
+    fun execute(books: List<Pair<String, String>>, consumer: BookResultsHandler) {
+        books.forEach { (title, author) ->
             val allResults = mutableListOf<Found>()
             runBlocking {
                 val deferredResults = finders.map { finder ->
                     async(Dispatchers.IO) {
-                        finder.findTitle(title) /* Perform the search asynchronously */
+                        finder.findBook(title, author)
                     }
                 }
-                // Await all the results and aggregate them
                 deferredResults.forEach { deferred ->
-                    val result = deferred.await()
-                    allResults.addAll(result)
+                    allResults.addAll(deferred.await())
                 }
-
             }
             consumer.consume(title, allResults)
             println("$title - DONE")

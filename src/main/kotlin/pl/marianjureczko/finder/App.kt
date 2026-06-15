@@ -10,10 +10,11 @@ import java.nio.file.Files
 import java.nio.file.Paths
 
 private const val TITLE = "title"
+private const val AUTHOR = "author"
 
 fun main() {
     val fileName = "search.csv"
-    val bookTitles = loadTitlesFromCsv()
+    val books = loadBooksFromCsv()
     val executor = SearchExecutor()
 
     val headers = executor.sourceTypes()
@@ -21,7 +22,7 @@ fun main() {
 
     BufferedWriter(FileWriter(fileName)).use { writer ->
         val csvPrinter = CSVPrinter(writer, csvFormat)
-        executor.execute(bookTitles, object: BookResultsHandler {
+        executor.execute(books, object: BookResultsHandler {
             override fun consume(title: String, results: List<Found>) {
                 val resultsByType = results.associateBy { it.sourceType }
                 val record = listOf(title) + headers.map { resultsByType[it]?.link ?:"" }
@@ -40,14 +41,16 @@ private fun createCsvFormat(headers: List<String>): CSVFormat? {
     return formatBuilder.build()
 }
 
-private fun loadTitlesFromCsv(): MutableList<String> {
+private fun loadBooksFromCsv(): List<Pair<String, String>> {
     val csvFilePath = "books.csv"
-    val bookTitles = mutableListOf<String>()
+    val books = mutableListOf<Pair<String, String>>()
     Files.newBufferedReader(Paths.get(csvFilePath)).use { reader ->
         val csvParser = CSVParser(reader, CSV_FORMAT.withSkipHeaderRecord())
         for (csvRecord in csvParser) {
-            bookTitles.add(csvRecord.get(TITLE))
+            val title = csvRecord.get(TITLE)
+            val author = runCatching { csvRecord.get(AUTHOR) }.getOrDefault("")
+            books.add(title to author)
         }
     }
-    return bookTitles
+    return books
 }
