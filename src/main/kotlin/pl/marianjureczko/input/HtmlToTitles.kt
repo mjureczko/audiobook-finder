@@ -5,29 +5,34 @@ import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVPrinter
 import java.io.BufferedWriter
 import java.io.FileWriter
+import org.jsoup.Jsoup
 
-val CSV_FORMAT = CSVFormat.Builder.create().setHeader("title").build()
+data class Book(val title: String, val author: String)
+
+val CSV_FORMAT = CSVFormat.Builder.create().setHeader("title", "author").build()
 
 fun main() {
-    val extractedTitles = extractTitles()
-    saveToCsv(extractedTitles)
+    val books = extractBooks()
+    saveToCsv(books)
 }
 
-fun extractTitles(): List<String> {
-    val htmlContent: String = File("books.html").readText()
-    val regex = Regex("""<label>title<\/label>.*?<a title="(.*?)"""")
-    val matches = regex.findAll(htmlContent)
-    return matches
-        .map { it.groupValues[1].replace(Regex("&[a-zA-Z]{1,5};"), "") }
-        .toList()
+fun extractBooks(): List<Book> {
+    val doc = Jsoup.parse(File("books.html"))
+    val rows = doc.select("tr.bookalike.review")
+    return rows.mapNotNull { row ->
+        val title = row.selectFirst("td.field.title a[title]")?.attr("title") ?: return@mapNotNull null
+        val authors = row.select("td.field.author a[href*=/author/show/]")
+            .joinToString(", ") { it.text().trim() }
+        if (authors.isEmpty()) return@mapNotNull null
+        Book(title, authors)
+    }
 }
 
-
-fun saveToCsv(extractedTitles: List<String>) {
+fun saveToCsv(books: List<Book>) {
     val fileName = "books.csv"
     BufferedWriter(FileWriter(fileName)).use { writer ->
         val csvPrinter = CSVPrinter(writer, CSV_FORMAT)
-        extractedTitles.forEach{csvPrinter.printRecord(it)}
+        books.forEach { csvPrinter.printRecord(it.title, it.author) }
         csvPrinter.flush()
     }
 }
