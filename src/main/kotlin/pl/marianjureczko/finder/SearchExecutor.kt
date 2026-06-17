@@ -6,6 +6,7 @@ import pl.marianjureczko.finder.port.audible.AudibleFinder
 import pl.marianjureczko.finder.port.audioteka.AudiotekaFinder
 import pl.marianjureczko.finder.port.bookbeat.BookbeatFinder
 import pl.marianjureczko.finder.port.legimi.LegimiFinder
+import pl.marianjureczko.finder.port.libraryoborniki.LibraryObornikiFinder
 import pl.marianjureczko.finder.port.oreilly.OreillyFinder
 
 interface BookResultsHandler {
@@ -19,7 +20,8 @@ class SearchExecutor {
         AudibleFinder(),
         LegimiFinder(),
         AudiotekaFinder(),
-        OreillyFinder()
+        OreillyFinder(),
+        LibraryObornikiFinder()
     )
 
     fun sourceTypes(): List<String> = finders.flatMap { it.sourceTypes() }
