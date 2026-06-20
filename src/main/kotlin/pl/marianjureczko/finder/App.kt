@@ -47,10 +47,13 @@ private fun loadBooksFromCsv(): List<Pair<String, String>> {
     Files.newBufferedReader(Paths.get(csvFilePath)).use { reader ->
         val csvParser = CSVParser(reader, CSV_FORMAT.withSkipHeaderRecord())
         for (csvRecord in csvParser) {
-            val title = csvRecord.get(TITLE)
+            val title = removeBrackets(csvRecord.get(TITLE))
             val author = runCatching { csvRecord.get(AUTHOR) }.getOrDefault("")
             books.add(title to author)
         }
     }
     return books
 }
+
+private fun removeBrackets(text: String): String =
+    text.replace(Regex("""\([^)]*\)"""), "").replace(Regex("""\s+"""), " ").trim()
