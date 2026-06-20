@@ -33,7 +33,7 @@ class LibraryObornikiResponseAnalyser {
             ?.select("div.col-auto.mx-auto")
             ?.any { div ->
                 val m = copyCountPattern.find(div.text().trim())
-                m != null && m.groupValues[1].toInt() > 0
+                m != null
             } ?: false
     }
 

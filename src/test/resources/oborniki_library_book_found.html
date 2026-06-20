@@ -1,0 +1,2267 @@
+
+
+
+
+<!DOCTYPE html>
+<!--
+  #%L
+  audiobook-finder
+  %%
+  Copyright (C) 2024 - 2026 Marian Jureczko
+  %%
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public
+  License along with this program.  If not, see
+  <http://www.gnu.org/licenses/gpl-3.0.html>.
+  #L%
+  -->
+
+<html lang="pl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="_csrf" content="5e97b9ee-974d-4660-a7d6-73adb112c354"/>
+    <meta name="_csrf_header" content="X-CSRF-TOKEN"/>
+    <title>Wyszukiwanie - SzukamKsiążki.pl</title>
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/SkNewWeb/css/app_w_1-932b7e137d29d59e565358b9a8db83c8.css" />
+    <script src="/SkNewWeb/js/app.min-45dd69fcd1c580b3ff816fb13fd7c341.js" type="text/javascript"></script>
+    <script src="/SkNewWeb/js_localized/main2.js" type="text/javascript"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138917450-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-138917450-1');
+    </script>
+</head>
+<body>
+
+
+<header>
+    <div class="container-fluid d-print-none" id="privacy-alert" style="display:none;">
+        <div class="container">
+            <div class="row mb-4 alert alert-secondary">
+                <div class="col">
+                    <p class="text-justify"><small>Instytut Książki dba o ochronę prywatności użytkowników i bezpieczeństwo przetwarzania ich danych osobowych oraz stosuje odpowiednie rozwiązania technologiczne zapobiegające ingerencji osób trzecich w prywatność użytkowników. Używamy także plików cookies, by ułatwić korzystanie z naszych serwisów oraz do celów statystycznych.Jeśli nie chcesz, by pliki cookies były zapisywane na Twoim dysku zmień ustawienia swojej przeglądarki. Kliknij "Zamknij" aby zaakceptować naszą politykę prywatności.</small></p>
+                </div>
+                <div class="col-auto"><span class="btn btn-primary" onclick="akceptujPolitykePrywatnosci()">ZAMKNIJ</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function(){
+            var cookie = getCookie("akceptacjaPP");
+            if (cookie==null || cookie!="true")
+                $("#privacy-alert").show();
+        });
+            function akceptujPolitykePrywatnosci()
+            {
+                setCookie("akceptacjaPP", "true", 360);
+                $("#privacy-alert").hide();
+            }
+    </script>
+
+    <div class="container-fluid d-print-none">
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-auto">
+
+
+                    <a href="/SkNewWeb/start"><img class="img" src="/SkNewWeb/images/logosk186.png"/></a>
+                </div>
+                <div class="col-xl col-xs-12 ">
+                    <div class="row mb-3 invisible" style="display:none;"><div class="col"><span class="f_raleway_B align-middle fs-16p"><a href="&skin=w"><span class="ski-contrast-bw align-middle fs-28p"></span></a></span></div></div>
+                    <div class="row">
+
+
+                        <div class="col-xl-auto col-xs-12 my-auto mx-auto">
+                            <div class="row text-right">
+                                <div class="col-xl-auto col-xs-12 my-auto">
+                                    <button data-toggle="modal" data-target="#modal_login" class="btn-link remove_button_css cpointer">
+                                        <span class="text-uppercase f_raleway_B fs-16p">zarejestruj / zaloguj</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-xl-auto col-xs-12">
+
+                    <div class="row">
+                        <div class="col-xl-auto col-xs-12 my-auto">
+                            <div class="row mb-3 text-right">
+
+
+
+
+                                <div class="col-xl-auto colxs-12 my-auto">
+                                    <a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&locale=pl" class="no-under font-weight-bold"><span class="fs-16p">PL</span></a>
+                                    &nbsp;<a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&locale=en" class="no-under "><span class="fs-16p">EN</span></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-xl-auto col-xs-12 my-auto">
+                            <div class="row mb-3 text-right">
+                                <div class="col-xl-auto col-xs-12">
+                                    <span class="f_raleway_B align-middle fs-16p">wielkość:</span>
+                                    <a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&size=1" class="no-under"><span class="ski-font-size1 align-middle fs-20p"></span></a>
+                                    <a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&size=2" class="no-under"><span class="ski-font-size2 align-middle fs-20p no-under"></span></a>
+                                    <a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&size=3" class="no-under"><span class="ski-font-size3 align-middle fs-20p no-under"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row text-right">
+                        <div class="col"></div>
+
+
+                        <div class="col-xl-auto col-xs-12 my-auto">
+                            <div class="kontrast">
+                                <span class="f_raleway_B align-middle fs-16p">kontrast:</span>
+
+                                <a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&skin=w"><span class="ski-contrast-bw align-middle fs-28p"></span></a>
+                                <a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&skin=b"><span class="ski-contrast-wb align-middle fs-28p"></span></a>
+                                <a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&skin=yb"><span class="ski-contrast-yb align-middle fs-28p"></span></a>
+                                <a href="/SkNewWeb/search?autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&tytul=Kolekcjoner+lalek&dummy=1&skin=y"><span class="ski-contrast-by align-middle fs-28p"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+
+<div class="maincontainer my-3" id="mainContentContainer" role="main">
+
+
+
+
+
+
+
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-auto my-auto">
+
+
+
+                <span class="ski-marker-white fs-45p cpointer"></span>
+
+
+            </div>
+            <div class="col">
+                <p class="h6"><a href="/SkNewWeb/astart/858">Kulturalne Oborniki Śląskie Biblioteka im. Jarosława Iwaszkiewicza i filie</a><br>
+                    <small><a href="/SkNewWeb/astart/858">ul. Dworcowa 4</a></small><br/><small><a href="/SkNewWeb/astart/858">55-120 Oborniki Śląskie</a></small>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        //1
+        function addTypeahead(field)
+        {
+            var tytul = $("#szukaj_"+field);
+            tytul.prop("autocomplete","off");
+            tytul.bind("keyup",function(e) {
+                var ta = $("#szukaj_"+field).next();
+                if (ta.length==1 && ta.is(":visible") && ta.find(".active").length>0)
+                    return;
+                  switch (e.keyCode) {
+                    case 13: // enter
+                        $('#szukajForm').submit();
+                  }
+                });
+            tytul.typeahead({
+
+                    afterSelect:function(data){$('#szukajForm').submit();},
+                matcher:function(item){return true;},
+                autoSelect:false,
+                source:function(szukaj_tytul, process){
+                var dane = null;
+                $.ajax({
+                      dataType: "json",
+                      type: "GET",
+                      data: $("#szukajForm").serialize(),
+                      beforeSend: function(request) {
+                            request.setRequestHeader($("meta[name='_csrf_header']").attr("content"),$("meta[name='_csrf']").attr("content"));
+                          },
+                      url: pageContext+"/search_typeahead/"+field,
+                      async:true,
+                      success: function( response ) {
+                          waitEnd();
+                          if (response["error"]!=null)
+                          {
+                              alertModal(response["error"]);
+                          }
+                          else
+                          {
+                              process(response);
+
+                          }
+                      }
+                      });
+
+
+            }
+            });
+        }
+
+        $(document).ready(function(){
+            $('#box_zaawansowane').on('hidden.bs.collapse', function () {
+                  $("#zaawansowane").val("false");
+                })
+                $('#box_zaawansowane').on('shown.bs.collapse', function () {
+                      $("#zaawansowane").val("true");
+                    })
+
+            addTypeahead("tytul");
+            addTypeahead("autor");
+            addTypeahead("haslo");
+            addTypeahead("gatunek");
+            addTypeahead("rok_wydania");
+
+
+
+
+
+            var biblioteka = $("#szukaj_biblioteka");
+            biblioteka.typeahead({
+                afterSelect:function(data){
+                    if (data.biblioteka!=null)
+                    {
+                        $("#stronaInstancji").attr("href", $("#stronaInstancji").attr("href")+data.idAuthorize );
+                        $("#stronaInstancji")[0].click();
+                        return ;
+                    }
+                    if (data.powiat!=null)
+                    {
+                        $("#stronaPowiatu").attr("href", $("#stronaPowiatu").attr("href")+data.idPowiatu );
+                        $("#stronaPowiatu")[0].click();
+                        return ;
+                    }
+
+
+                    $("#stronaBiblioteki").attr("href", $("#stronaBiblioteki").attr("href")+data.id );
+                    $("#stronaBiblioteki")[0].click();
+
+
+                },
+                highlighter: function (item,data) {
+                      var html = $('<div></div>');
+                      if (data.biblioteka!=null)
+                          return html.append($('<h6></h6>').append($('<strong></strong>').text(item)));
+                      if (data.powiat!=null)
+                          return html.append($('<h5></h5>').append($('<strong></strong>').text(item)));
+                      var query = this.query;
+                      var i = item.toLowerCase().indexOf(query.toLowerCase());
+                      var len = query.length;
+                      var leftPart;
+                      var middlePart;
+                      var rightPart;
+                      var strong;
+                      if (len === 0) {
+                        return html.text(item).html();
+                      }
+                      while (i > -1) {
+                        leftPart = item.substr(0, i);
+                        middlePart = item.substr(i, len);
+                        rightPart = item.substr(i + len);
+                        strong = $('<strong></strong>').text(middlePart);
+                        html
+                          .append(document.createTextNode(leftPart))
+                          .append(strong);
+                        item = rightPart;
+                        i = item.toLowerCase().indexOf(query.toLowerCase());
+                      }
+                      return html.append(document.createTextNode(item)).html();
+                    },matcher:function(item){return true;},
+                 source:function(szukaj_biblioteka, process){
+                var dane = null;
+                $.ajax({
+                      dataType: "json",
+                      type: "GET",
+                      data: "nazwa="+encodeURIComponent(szukaj_biblioteka),
+                      beforeSend: function(request) {
+                            request.setRequestHeader($("meta[name='_csrf_header']").attr("content"),$("meta[name='_csrf']").attr("content"));
+                          },
+                      url: pageContext+"/search_biblioteka",
+                      async:true,
+                      success: function( response ) {
+                          waitEnd();
+                          if (response["error"]!=null)
+                          {
+                              alertModal(response["error"]);
+                          }
+                          else
+                          {
+                              process(response);
+
+                          }
+                      }
+                      });
+
+
+            },
+                displayText: function(item){
+                    if (item.powiat!=null)
+                        return "Powiat "+item.powiat;
+                    if (item.biblioteka!=null)
+                        return item.biblioteka.nazwa+" "+item.biblioteka.miejscowosc+" i filie";
+                    return "   "+item.nazwa+" "+item.miejscowosc;
+
+                }});
+
+        });
+    </script>
+    <a href="/SkNewWeb/bstart/" style="display:none;" id="stronaBiblioteki"></a>
+    <a href="/SkNewWeb/astart/" style="display:none;" id="stronaInstancji"></a>
+    <a href="/SkNewWeb/pstart/" style="display:none;" id="stronaPowiatu"></a>
+    <div class="container-fluid bgcolor1 py-5 bottom-shadow">
+        <form id="szukajForm" onsubmit="return waitStartCheck()" action="/SkNewWeb/search">
+            <div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col">
+                        <p class="h4">Szukaj, wybierz, zarezerwuj</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="h5">45933 książek
+                            , 1349 audiobookow
+
+                            , 846 pozostałych
+                        </p>
+                    </div>
+                </div>
+
+
+
+                <div class="row bgcolor2 mx-0 mt-3" id="searchMsgRow" style="display:none;">
+                    <div class="col text-center">
+                        <p class="h5 mt-2 f_raleway_XB"><span id="searchValiMsg"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="szukaj_tytul">Tytuł:</label>
+                        <input class="form-control f_raleway_M" type="text" placeholder="wpisz" name="tytul" id="szukaj_tytul" value="Kolekcjoner lalek"/>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="szukaj_autor">Autor:</label>
+                        <input class="form-control f_raleway_M" type="text" placeholder="wpisz" name="autor" id="szukaj_autor" value="Bonda"/>
+                    </div>
+                    <div class="form-group col-md" id="biblioteka_lokalizacja" style="display:none;">
+                        <label for="">Biblioteka:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend" id="biblioteka_lokalizacja_ikonka">
+                                <span class="input-group-text ski-marker-white"></span>
+                            </div>
+                            <select onchange="bibliotekaChanged()" id="sel_biblioteki" class="custom-select f_raleway_M">
+                                <option value="" id="szukajWPoblizu">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w pobliżu 20 km</option>
+                                <option value="wylacz" id="szukajWylacz">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wyłącz lokalizację</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md" id="biblioteka_adres">
+                        <label for="szukaj_biblioteka">Biblioteka:</label>
+                        <input autocomplete="off" class="form-control f_raleway_M" type="text" placeholder="wpisz adres lub nazwę biblioteki" name="biblioteka" id="szukaj_biblioteka" value=""/>
+                    </div>
+                    <div class="form-group col-md-auto">
+                        <label for="szukaj_btn">&nbsp;</label><br/>
+                        <button type="submit" class="btn btn-primary" id="szukaj_btn">szukaj</button>
+                    </div>
+                </div>
+                <input type="hidden" name="szukaj_latitude" id="szukaj_latitude"  value="" />
+                <input type="hidden" name="szukaj_longitude" id="szukaj_longitude"  value=""/>
+                <input type="hidden" name="szukaj_w_promieniu" id="szukaj_w_promieniu" value="" />
+
+
+                <script>
+
+                    function bibliotekaChanged()
+                    {
+                        if ($("#sel_biblioteki").val()=='')
+                        {
+                            $("#biblioteka_lokalizacja_ikonka").show();
+                            $("#szukaj_latitude").val(latitude);
+                            $("#szukaj_longitude").val(longitude);
+                            $("#szukaj_w_promieniu").val(20);
+                            $("#id_biblioteka").val("");
+                            $("#id_authorize").val("");
+
+                        }
+                        else if ($("#sel_biblioteki").val()=='wylacz')
+                        {
+                            $("#szukaj_latitude").val("");
+                            $("#szukaj_longitude").val("");
+                            $("#szukaj_w_promieniu").val("");
+                            $("#biblioteka_lokalizacja").hide();
+                            $("#biblioteka_adres").show();
+
+
+                        }
+                        else
+                        {
+                            var data = $('#sel_biblioteki').find(":selected").data("biblioteka");
+                            if (data.biblioteka!=null)
+                            {
+                                $("#stronaInstancji").attr("href", $("#stronaInstancji").attr("href")+data.idAuthorize );
+                                $("#stronaInstancji")[0].click();
+                                return ;
+                            }
+                            if (data.powiat!=null)
+                            {
+                                $("#stronaPowiatu").attr("href", $("#stronaPowiatu").attr("href")+data.idPowiatu );
+                                $("#stronaPowiatu")[0].click();
+                                return ;
+                            }
+
+
+                            $("#stronaBiblioteki").attr("href", $("#stronaBiblioteki").attr("href")+data.id );
+                            $("#stronaBiblioteki")[0].click();
+
+                        }
+                    }
+
+                    var latitude=null;
+                    var longitude=null;
+                    var bibliotekaId=null;
+
+                    var powiatId=null;
+
+                    var instancjaId=null;
+
+                    instancjaId=858;
+
+                        $(document).ready(function(){
+
+                            if (bibliotekaId!=null)
+                            {
+                                $("#biblioteka_adres").hide();
+                            }
+                            else if (powiatId!=null)
+                            {
+                                $("#biblioteka_adres").hide();
+                            }
+                            else if (instancjaId!=null)
+                            {
+                                $("#biblioteka_adres").hide();
+                            }
+                            else
+                            {
+                                if ($("#szukaj_w_promieniu").val()=="")
+                                        navigator.geolocation.getCurrentPosition(function(position) {
+                                        // Get the positioning coordinates.
+                                        var lat = position.coords.latitude;
+                                        var lon = position.coords.longitude;
+                                        $("#szukaj_latitude").val(lat);
+                                        $("#szukaj_longitude").val(lon);
+                                        $("#szukaj_w_promieniu").val(20);
+                                        $("#biblioteka_lokalizacja").show();
+                                        $("#biblioteka_adres").hide();
+                                        latitude = lat;
+                                        longitude = lon;
+                                        wczytajBiblioteki(lat,lon);
+
+                                        });
+
+
+
+                                        else
+                                        {
+                                            wczytajBiblioteki($("#szukaj_latitude").val(),$("#szukaj_longitude").val());
+                                            $("#biblioteka_lokalizacja").show();
+                                            $("#biblioteka_adres").hide();
+                                        }
+                            }
+                        });
+
+                        function wczytajBiblioteki(lat,lon)
+                        {
+
+
+                            $.ajax({
+                                  dataType: "json",
+                                  type: "GET",
+                                  data: {latitude:lat, longitude: lon, radius:20},
+                                  url: pageContext+"/start/librariesInRadius",
+                                  error: function( response,status,error ) {
+                                      waitEnd();
+                                      alertModal("Wystąpił błąd: " +status);
+
+                                  },
+                                  async:true,
+                                  success: function( response ) {
+                                      if (response["error"]!=null)
+                                      {
+                                          alertModal(response["error"]);
+                                      }
+                                      else
+                                      {
+                                          biblioteki = response["biblioteki"];
+                                        for(var i=0;i<biblioteki.length;i++)
+                                        {
+                                            var biblioteka = biblioteki[i];
+                                            var option = $("<option />");
+                                            if (biblioteka.biblioteka!=null)
+                                            {
+                                                option.html(biblioteka.biblioteka.nazwa+" "+biblioteka.biblioteka.miejscowosc+" i filie");
+                                                option.val(biblioteka.idAuthorize);
+                                            }
+                                            else
+                                            {
+                                                option.html(biblioteka.nazwa);
+                                                option.val(biblioteka.id);
+                                            }
+
+
+                                            option.data("biblioteka", biblioteka);
+                                            $("#sel_biblioteki").append(option);
+                                        }
+
+                                      }
+                                  }
+                                  });
+
+                        }
+
+                </script>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a aria-expanded="false" aria-controls="box_zaawansowane" data-toggle="collapse" href="#box_zaawansowane" class="f_firas_EXC">Wyszukiwanie zaawansowane</a>
+                    </div>
+                </div>
+
+                <div id="box_zaawansowane" class="collapse">
+
+                    <div class="row mt-3">
+                        <div class="form-group col-md">
+                            <label for="szukaj_haslo">Hasło przedmiotowe:</label>
+                            <input class="form-control" type="text" placeholder="wpisz" name="haslo" id="szukaj_haslo" value=""/>
+                        </div>
+                        <div class="form-group col-md">
+                            <label for="szukaj_gatunek">Gatunek:</label>
+                            <input class="form-control" type="text" placeholder="wpisz" name="gatunek" id="szukaj_gatunek" value=""/>
+                        </div>
+                        <div class="form-group col-md">
+                            <label for="szukaj_slowo_kluczowe">Słowo kluczowe:</label>
+                            <input class="form-control" type="text" placeholder="wpisz" name="slowoKluczowe" id="szukaj_slowo_kluczowe" value=""/>
+                        </div>
+                        <div class="form-group col-md">
+                            <label for="szukaj_isbn">ISBN:</label>
+                            <input class="form-control" type="text" placeholder="wpisz" name="isbn" id="szukaj_isbn" value=""/>
+                        </div>
+                        <div class="form-group col-md">
+                            <label for="szukaj_rok_wydania">Rok wydania:</label>
+                            <input class="form-control" type="text" placeholder="wpisz" name="rok_wydania" id="szukaj_rok_wydania" value=""/>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="form-group col">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="k" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_k" checked="checked" />
+                                <label for="szukaj_sekcja_k" class="custom-control-label">Książki</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="b" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_b" checked="checked" />
+                                <label for="szukaj_sekcja_b" class="custom-control-label">Audiobooki</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="f" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_f" checked="checked" />
+                                <label for="szukaj_sekcja_f" class="custom-control-label">Filmy i multimedia</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="w" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_w" checked="checked" />
+                                <label for="szukaj_sekcja_w" class="custom-control-label">Wydawnictwa ciągłe</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="d" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_d" checked="checked" />
+                                <label for="szukaj_sekcja_d" class="custom-control-label">Dźwięki</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="s" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_s" checked="checked" />
+                                <label for="szukaj_sekcja_s" class="custom-control-label">Starodruki</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="i" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_i" checked="checked" />
+                                <label for="szukaj_sekcja_i" class="custom-control-label">Ikonografia</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="g" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_g" checked="checked" />
+                                <label for="szukaj_sekcja_g" class="custom-control-label">Kartografia</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="n" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_n" checked="checked" />
+                                <label for="szukaj_sekcja_n" class="custom-control-label">Nuty</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="y" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_y" />
+                                <label for="szukaj_sekcja_y" class="custom-control-label">Artykuły</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="true" type="checkbox" name="tylkoIbuk" class="custom-control-input" id="szukaj_tylkoIbuk" />
+                                <label for="szukaj_tylkoIbuk" class="custom-control-label"><img src="/SkNewWeb/images/ibuk_libra.png" style="width:20px; height:20px;" title="IBUK Libra"/></label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="e" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_e" checked="checked" />
+                                <label for="szukaj_sekcja_e" class="custom-control-label">Dokumenty elektroniczne</label>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input value="m" type="checkbox" name="sekcja" class="custom-control-input" id="szukaj_sekcja_m" checked="checked" />
+                                <label for="szukaj_sekcja_m" class="custom-control-label">Eksponaty</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <input type="hidden" name="id_authorize" value="858" />
+
+
+
+
+
+            <input type="hidden" name="zaawansowane" id="zaawansowane" value="false" />
+        </form>
+    </div>
+
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal_lokalizacja">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body p-3">
+                    <div id="mapLocation" style="height: 500px; color:#000;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var markerLocation = null;
+        var mapLocation = null;
+        function pokazLokalizacje(latitude, longitude, nazwa, adres1, adres2) {
+            if (markerLocation != null)
+                markerLocation.setMap(null);
+            var position = {
+                lat : latitude,
+                lng : longitude
+            };
+            if (mapLocation == null)
+
+                mapLocation = new google.maps.Map(document
+                        .getElementById('mapLocation'), {
+                    zoom : 10
+                });
+            mapLocation.setCenter(position);
+            $("#modal_lokalizacja").modal('show');
+            markerLocation = new google.maps.Marker({
+                position : position,
+                map : mapLocation,
+                title : nazwa
+            });
+            var infoWindow = new google.maps.InfoWindow({
+                content : '<div id="content"><h6>' + nazwa + '</h6><p>' + adres1
+                        + '<br />' + adres2 + '</p></div>'
+            });
+            infoWindow.open(mapLocation, markerLocation);
+
+        }
+    </script>
+
+    <div class="container-fluid bgcolor4">
+        <div class="container">
+
+            <div class="row pt-3">
+                <div class="col text-center">
+                    <p class="h5">
+                        <span class="f_raleway_XB wyniki-header">Wyszukiwanie:</span>
+                        <span class="f_raleway_M">Znaleziono: 1
+
+						wynik
+
+
+						.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3" id="fasety">
+                    <div class="text-center">
+                        <i class="fa fa-spin fa-3x fa-spinner"></i>
+                    </div>
+
+                    <a href="/SkNewWeb/facets?tytul=Kolekcjoner+lalek&max=10&autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&order=accuracy" id="facetUrl" style="display:none;"></a>
+                    <script>
+
+                        $(document).ready(function(){
+                            var result;
+                            $.ajax({
+                                type: "GET",
+                                url: $("#facetUrl").prop("href"),
+                                async: true,
+                                success: function(data)
+                                {
+                                    result=data;
+                                    $("#fasety").html(result);
+
+                                }
+                              });
+                        });
+                    </script>
+
+
+                </div>
+
+
+
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="form-group">
+                                <form method="get" action="/SkNewWeb/search" id="sortForm">
+
+                                    <label for="sel_sort">sortuj:</label>
+                                    <select class="form-control" onchange="document.getElementById('sortForm').submit();" name="order" id="sel_sort">
+                                        <option value="accuracy"   selected="selected">Trafność</option>
+                                        <option value="tytul" >Tytuł</option>
+                                        <option value="autor" >Autor</option>
+                                    </select>
+
+
+
+                                    <input type="hidden" name="tytul" value="Kolekcjoner lalek">
+
+
+
+                                    <input type="hidden" name="max" value="10">
+
+
+
+                                    <input type="hidden" name="autor" value="Bonda">
+
+
+
+                                    <input type="hidden" name="id_authorize" value="858">
+
+
+
+                                    <input type="hidden" name="sekcja" value="k">
+
+
+
+                                    <input type="hidden" name="sekcja" value="b">
+
+
+
+                                    <input type="hidden" name="sekcja" value="f">
+
+
+
+                                    <input type="hidden" name="sekcja" value="w">
+
+
+
+                                    <input type="hidden" name="sekcja" value="d">
+
+
+
+                                    <input type="hidden" name="sekcja" value="s">
+
+
+
+                                    <input type="hidden" name="sekcja" value="i">
+
+
+
+                                    <input type="hidden" name="sekcja" value="g">
+
+
+
+                                    <input type="hidden" name="sekcja" value="n">
+
+
+
+                                    <input type="hidden" name="sekcja" value="e">
+
+
+
+                                    <input type="hidden" name="sekcja" value="m">
+
+
+
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col text-right">
+                            <form method="get" action="/SkNewWeb/search" id="countForm">
+                                <div class="form-group w-auto">
+
+                                    <div class="form-check-inline"><label>Pokaż:</label></div>
+                                    <div class="form-check-inline">
+                                        <input onchange="document.getElementById('countForm').submit();" class="form-check-input" type="radio" name="max" value="10"
+                                               checked="checked"
+                                               id="ct_10" />
+                                        <label class="form-check-label" for="ct_10">10</label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <input onchange="document.getElementById('countForm').submit();" class="form-check-input" type="radio" name="max" value="20"
+
+                                               id="ct_20" />
+                                        <label class="form-check-label" for="ct_20">20</label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <input onchange="document.getElementById('countForm').submit();" class="form-check-input" type="radio" name="max" value="40"
+
+                                               id="ct_40" />
+                                        <label class="form-check-label" for="ct_40">40</label>
+                                    </div>
+                                </div>
+
+
+                                <input type="hidden" name="tytul" value="Kolekcjoner lalek">
+
+
+
+
+
+                                <input type="hidden" name="autor" value="Bonda">
+
+
+
+                                <input type="hidden" name="id_authorize" value="858">
+
+
+
+                                <input type="hidden" name="sekcja" value="k">
+
+
+
+                                <input type="hidden" name="sekcja" value="b">
+
+
+
+                                <input type="hidden" name="sekcja" value="f">
+
+
+
+                                <input type="hidden" name="sekcja" value="w">
+
+
+
+                                <input type="hidden" name="sekcja" value="d">
+
+
+
+                                <input type="hidden" name="sekcja" value="s">
+
+
+
+                                <input type="hidden" name="sekcja" value="i">
+
+
+
+                                <input type="hidden" name="sekcja" value="g">
+
+
+
+                                <input type="hidden" name="sekcja" value="n">
+
+
+
+                                <input type="hidden" name="sekcja" value="e">
+
+
+
+                                <input type="hidden" name="sekcja" value="m">
+
+
+
+                                <input type="hidden" name="order" value="accuracy">
+
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <hr />
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-auto">
+
+
+
+
+
+
+                            <img class="img-cover" alt="okładka" src="/SkNewWeb/pictures/get_cover_local.jpg?id=55491&idAuthorize=858" />
+
+
+
+
+
+                        </div>
+                        <div class="col pl-0">
+
+                            <div>
+                                <p class="h4"><span class="f_firas_EXC"><a href="/SkNewWeb/record_bibs/8673595?fromSearch=true&tytul=Kolekcjoner+lalek&max=10&autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&order=accuracy">Kolekcjoner lalek</a></span></p>
+                            </div>
+                            <div>
+                                <p class="h5 text-uppercase"><span class="f_firas_EXCL"><a href="/SkNewWeb/record_bibs/8673595?fromSearch=true&tytul=Kolekcjoner+lalek&max=10&autor=Bonda&id_authorize=858&sekcja=k&sekcja=b&sekcja=f&sekcja=w&sekcja=d&sekcja=s&sekcja=i&sekcja=g&sekcja=n&sekcja=e&sekcja=m&order=accuracy">Bonda, Katarzyna</a></span></p>
+                            </div>
+
+                            <div>
+                                <p class="h6">
+			    						<span class="text-secondary f_raleway_M">
+				    		 				Rok wydania:
+
+												2025.
+
+										</span>
+                                </p>
+                            </div>
+
+
+                            <div>
+                                <p class="h6">
+			    						<span class="text-secondary f_raleway_M">
+
+
+												Lena Silewicz
+
+												,
+												Zabójcy
+
+												,
+												Policja
+
+												,
+												Podcasting
+
+												,
+												Śledztwo i dochodzenie
+
+												,
+												Przeszłość
+
+												,
+												Warszawa
+
+												,
+												Kryminał
+
+												,
+												Powieść
+
+												,
+												2001-
+
+										</span>
+                                </p>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-auto elements-icons">
+
+
+
+
+                                    <span class="ski-ksi fs-60p"></span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div class="col-auto">
+
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="mt-2" id="biblioteki_8673595">
+
+                        <div class="col-12">
+                            <div class="row even">
+
+                                <div class="col-auto my-auto pr-0" onclick="pokazLokalizacje(51.2990144110, 16.9080606621,'Kulturalne Oborniki Śląskie Biblioteka im. Jarosława Iwaszkiewicza','ul. Dworcowa 4','55-120 Oborniki Śląskie');">
+                                    <span class="ski-marker-white fs-45p cpointer"></span>
+                                </div>
+                                <div class="col-7">
+                                    <div class="row">
+                                        <div class="col-12 my-auto f_raleway_M">
+                                            <p class="f_raleway_M adres-bib my-2">
+                                                <a href="/SkNewWeb/bstart/1874">Kulturalne Oborniki Śląskie Biblioteka im. Jarosława Iwaszkiewicza</a><br />
+                                                <small><a href="/SkNewWeb/bstart/1874">ul. Dworcowa 4</a></small><br /><small><a href="/SkNewWeb/bstart/1874">55-120 Oborniki Śląskie</a></small>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-2 my-auto">
+
+                                    <div class="row">
+                                        <div class="col-auto mx-auto">dostępne</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-auto mx-auto">0 z 1</div>
+                                    </div>
+
+                                </div>
+                                <div class="col-2 my-auto">
+                                    <a class="btn btn-primary" href="/SkNewWeb/record/1874/8673595">sprawdź</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <hr />
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <ul class="pagination justify-content-center">
+
+
+
+
+
+
+
+
+                        <li class="page-item active"><a class="page-link">1</a></li>
+
+
+
+
+
+
+
+
+                    </ul>
+
+                </div>
+            </div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=ABQIAAAA9vMrCGRgHULed1_Z6gXaphQMy8U-zS14Zcz14rmwRKgxEDpMCRSXbdcw1btoKALIrxkVPA6cWe7U7A" async defer></script>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<footer>
+    <div class="footer d-print-none">
+        <div class="container-fluid bgcolor2">
+            <div class="container py-3">
+                <div class="row mt-4">
+                    <div class="col pr-0"></div>
+                    <div class="col-auto pl-0">
+                        <a class="f_firas_EXC" href="/SkNewWeb/contact">Kontakt</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="f_firas_EXC" href="/SkNewWeb/regulations">Regulamin</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="f_firas_EXC" href="/SkNewWeb/privacy">Polityka prywatności i plików cookie</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="f_firas_EXC" href="/SkNewWeb/map">Mapa bibliotek</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="f_firas_EXC" href="/SkNewWeb/faq">FAQ</a>
+                    </div>
+                    <div class="col-auto pr-0">
+                        <a class="f_firas_EXC" href="/SkNewWeb/declaration">Deklaracja dostępności</a>
+                    </div>
+                    <div class="col pl-0"></div>
+                </div>
+
+                <div class="row mt-4">
+
+                    <div class="col-auto text-center">
+                        <a class="f_firas_EXC" href="http://www.makplus.pl" target="_blank">
+                            <span>Dane pochodzą z systemu:</span><br/><span><img class="mt-3" src="/SkNewWeb/images/logomak.png"></span>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+
+                    </div>
+                    <div class="col-auto text-center">
+                        <a class="f_firas_EXC" href="http://www.facebook.com/mak.plus" target="_blank">
+                            <span>Jesteśmy na:</span><br/><span><i class="fab fa-facebook-f mt-3"></i></span></a>
+                    </div>
+
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <span class="f_firas_EXCL">© 2019 Instytut Książki</span>
+                    </div>
+
+                    <div class="col text-right">
+                        <span class="f_firas_EXCL">v.1.4.0 created by IK &amp; H7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal_login">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col py-4">
+                                <img class="mx-auto d-block" src="/SkNewWeb/images/logosk186.png"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6" id="zalogujKolumna">
+
+                                <form id="logowanie_form" action="/SkNewWeb/form_login" method="post">
+                                    <input type="hidden" name="_csrf" value="5e97b9ee-974d-4660-a7d6-73adb112c354"/>
+
+                                    <div class="row mt-4">
+                                        <div class="col-12 px-5"><h3>Zaloguj się</h3></div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12 px-5">
+                                            <label>Login:</label>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12 px-5">
+                                            <input type="text" id="logowanie_login" name="logowanie_login" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12 px-5">
+                                            <label>Hasło:</label>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12 px-5">
+                                            <input type="password" id="logowanie_haslo" name="logowanie_haslo" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 px-5 text-right small">
+                                            <a href="/SkNewWeb/remainder">Nie pamiętam loginu/hasła</a>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12 px-5">
+                                            <button type="submit" class="btn btn-primary">zaloguj</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-6 bgcolor4" id="kontoPytanie">
+                                <div class="row mt-4">
+                                    <div class="col-12 px-5"><h3>Załóż konto</h3></div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-auto pl-5">
+                                        <span class="ski-question-rev fs-45p"></span>
+
+                                    </div>
+                                    <div class="col pr-5">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label>Czy masz kartę biblioteczną w bibliotece korzystającej z katalogu MAK+?</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <a href="/SkNewWeb/map" class="text-underline"><small>Sprawdź mapę bibliotek</small></a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 my-3">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" onchange="radioLoginChanged();" type="radio" name="karta" id="karta_tak" value="tak">
+                                                    <label class="form-check-label" for="karta_tak">Tak</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" onchange="radioLoginChanged();" type="radio" name="karta" id="karta_nie" value="nie">
+                                                    <label class="form-check-label" for="karta_nie">Nie</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="row bgcolor2" id="info1">
+                                            <div class="col-12 pl-5">
+                                                <div class="row mt-3">
+                                                    <div class="col-12">
+                                                        <h4>Konto w Szukamksiążki.pl to:</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <i class="far fa-check-circle fs-45p"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="f_raleway_M">Możliwość przeglądania zbiorów  2601 bibliotek korzystających z systemu MAK+ oraz dokonywania rezerwacji w bibliotekach, w których jesteś zapisany.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <i class="far fa-check-circle fs-45p"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="f_raleway_M">Twoja historia wypożyczeń i lista tytułów, które chciał/a/byś przeczytać</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row bgcolor1" id="info2" style="display:none;">
+                                            <div class="col-12 pl-5 text-center">
+                                                Przed rejestracją w Szukamksiążki.pl załóż kartę biblioteczną w jednej z bibliotek korzystających z katalogu MAK+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <form id="rejestracja_form" action="/SkNewWeb/form_login" method="post">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6 bgcolor4 kontoZaloz" style="display:none">
+                                            <input type="hidden" name="_csrf" value="5e97b9ee-974d-4660-a7d6-73adb112c354"/>
+                                            <div class="row mt-4">
+                                                <div class="col-12"><h3>Załóż konto</h3></div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <label>Obywatelstwo:</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" onchange="obywatelstwoChanged();" type="radio" name="obywatelstwo" id="obywatelstwo_polskie" value="polskie">
+                                                        <label class="form-check-label" for="obywatelstwo_polskie">polskie</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" onchange="obywatelstwoChanged();" type="radio" name="obywatelstwo" id="obywatelstwo_inne" value="inne">
+                                                        <label class="form-check-label" for="obywatelstwo_inne">inne</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2 polePolskie" style="display:none;">
+                                                <div class="col-12">
+                                                    <label>PESEL:</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2 polePolskie" style="display:none;">
+                                                <div class="col-12">
+                                                    <input type="text" id="rejestracja_pesel" name="pesel" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2 poleInne" style="display:none;">
+                                                <div class="col-12">
+                                                    <label>Państwo:</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2 poleInne" style="display:none;">
+                                                <div class="col-12">
+                                                    <select id="rejestracja_panstwo" name="panstwo" class="form-control">
+
+                                                        <option value="af">Afganistan</option>
+
+                                                        <option value="aa">Albania</option>
+
+                                                        <option value="ae">Algieria</option>
+
+                                                        <option value="an">Andora</option>
+
+                                                        <option value="ao">Angola</option>
+
+                                                        <option value="am">Anguilla</option>
+
+                                                        <option value="ay">Antarktyka</option>
+
+                                                        <option value="aq">Antigua i Barbuda</option>
+
+                                                        <option value="na">Antyle Holenderskie</option>
+
+                                                        <option value="su">Arabia Saudyjska</option>
+
+                                                        <option value="ag">Argentyna</option>
+
+                                                        <option value="ai">Armenia</option>
+
+                                                        <option value="aw">Aruba</option>
+
+                                                        <option value="ji">Atol Johnstona</option>
+
+                                                        <option value="at">Australia</option>
+
+                                                        <option value="au">Austria</option>
+
+                                                        <option value="aj">Azerbejdżan</option>
+
+                                                        <option value="bf">Bahamy</option>
+
+                                                        <option value="ba">Bahrajn</option>
+
+                                                        <option value="bg">Bangladesz</option>
+
+                                                        <option value="bb">Barbados</option>
+
+                                                        <option value="be">Belgia</option>
+
+                                                        <option value="bh">Belize</option>
+
+                                                        <option value="dm">Benin</option>
+
+                                                        <option value="bm">Bermudy</option>
+
+                                                        <option value="bt">Bhutan</option>
+
+                                                        <option value="bw">Białoruś</option>
+
+                                                        <option value="br">Birma (Myanmar)</option>
+
+                                                        <option value="bo">Boliwia</option>
+
+                                                        <option value="bn">Bośnia i Hercegowina</option>
+
+                                                        <option value="bs">Botswana</option>
+
+                                                        <option value="bv">Bouveta</option>
+
+                                                        <option value="xa">Bożego Narodz.</option>
+
+                                                        <option value="bl">Brazylia</option>
+
+                                                        <option value="bx">Brunei Darussalam</option>
+
+                                                        <option value="vb">Bryt. Wyspy Dziewicze</option>
+
+                                                        <option value="bi">Bryt.Teryt.Oceanu Ind.</option>
+
+                                                        <option value="bu">Bułgaria</option>
+
+                                                        <option value="uv">Burkina Faso</option>
+
+                                                        <option value="bd">Burundi</option>
+
+                                                        <option value="cl">Chile</option>
+
+                                                        <option value="cc">Chiny</option>
+
+                                                        <option value="ch">Chiny (Tajwan)</option>
+
+                                                        <option value="ci">Chorwacja</option>
+
+                                                        <option value="cw">Cooka</option>
+
+                                                        <option value="cy">Cypr</option>
+
+                                                        <option value="cd">Czad</option>
+
+                                                        <option value="mo">Czarnogóra</option>
+
+                                                        <option value="xr">Czechy</option>
+
+                                                        <option value="dk">Dania</option>
+
+                                                        <option value="cg">Demokrat. Rep. Konga</option>
+
+                                                        <option value="dq">Dominika</option>
+
+                                                        <option value="dr">Dominikana</option>
+
+                                                        <option value="ft">Dżibuti</option>
+
+                                                        <option value="vi">Dziewicze Wyspy USA</option>
+
+                                                        <option value="ua">Egipt</option>
+
+                                                        <option value="ec">Ekwador</option>
+
+                                                        <option value="ea">Erytrea</option>
+
+                                                        <option value="er">Estonia</option>
+
+                                                        <option value="et">Etiopia</option>
+
+                                                        <option value="fk">Falklandy.Wyspy</option>
+
+                                                        <option value="fj">Fidżi</option>
+
+                                                        <option value="ph">Filipiny</option>
+
+                                                        <option value="fi">Finlandia</option>
+
+                                                        <option value="fr">Francja</option>
+
+                                                        <option value="fs">Francuskie Teryt. Pd.</option>
+
+                                                        <option value="go">Gabon</option>
+
+                                                        <option value="gm">Gambia</option>
+
+                                                        <option value="gh">Ghana</option>
+
+                                                        <option value="gi">Gibraltar</option>
+
+                                                        <option value="gr">Grecja</option>
+
+                                                        <option value="gd">Grenada</option>
+
+                                                        <option value="gl">Grenlandia</option>
+
+                                                        <option value="gs">Gruzja</option>
+
+                                                        <option value="gu">Guam</option>
+
+                                                        <option value="gy">Gujana</option>
+
+                                                        <option value="fg">Gujana Franc.</option>
+
+                                                        <option value="gp">Gwadelupa</option>
+
+                                                        <option value="gt">Gwatemala</option>
+
+                                                        <option value="gv">Gwinea</option>
+
+                                                        <option value="pg">Gwinea Bissau</option>
+
+                                                        <option value="eg">Gwinea Równikowa</option>
+
+                                                        <option value="ht">Haiti</option>
+
+                                                        <option value="hm">Heardi McDonald.Wyspy</option>
+
+                                                        <option value="sp">Hiszpania</option>
+
+                                                        <option value="sh">Hiszpanska Afryka pn</option>
+
+                                                        <option value="ne">Holandia</option>
+
+                                                        <option value="ho">Honduras</option>
+
+                                                        <option value="ii">Indie</option>
+
+                                                        <option value="io">Indonezja</option>
+
+                                                        <option value="iq">Irak</option>
+
+                                                        <option value="ir">Iran</option>
+
+                                                        <option value="ie">Irlandia</option>
+
+                                                        <option value="ic">Islandia</option>
+
+                                                        <option value="is">Izrael</option>
+
+                                                        <option value="jm">Jamajka</option>
+
+                                                        <option value="ja">Japonia</option>
+
+                                                        <option value="ye">Jemen</option>
+
+                                                        <option value="jo">Jordania</option>
+
+                                                        <option value="cj">Kajmany</option>
+
+                                                        <option value="cb">Kambodża</option>
+
+                                                        <option value="cm">Kamerun</option>
+
+                                                        <option value="xx">Kanada</option>
+
+                                                        <option value="uc">Karaiby/US</option>
+
+                                                        <option value="qa">Katar</option>
+
+                                                        <option value="kz">Kazachstan</option>
+
+                                                        <option value="ke">Kenia</option>
+
+                                                        <option value="kg">Kirgistan</option>
+
+                                                        <option value="xb">Kokosowe (Keelinga) Wyspy</option>
+
+                                                        <option value="ck">Kolumbia</option>
+
+                                                        <option value="cq">Komory</option>
+
+                                                        <option value="cf">Kongo</option>
+
+                                                        <option value="kn">Korea Północna</option>
+
+                                                        <option value="ko">Korea Południowa</option>
+
+                                                        <option value="kv">Kosowo</option>
+
+                                                        <option value="cr">Kostaryka</option>
+
+                                                        <option value="cu">Kuba</option>
+
+                                                        <option value="ku">Kuwejt</option>
+
+                                                        <option value="ls">Laos</option>
+
+                                                        <option value="lo">Lesotho</option>
+
+                                                        <option value="le">Liban</option>
+
+                                                        <option value="lb">Liberia</option>
+
+                                                        <option value="ly">Libia</option>
+
+                                                        <option value="lh">Lichtenstein</option>
+
+                                                        <option value="li">Litwa</option>
+
+                                                        <option value="lu">Luksemburg</option>
+
+                                                        <option value="lv">Łotwa</option>
+
+                                                        <option value="xn">Macedonia</option>
+
+                                                        <option value="mg">Madagaskar</option>
+
+                                                        <option value="ot">Majotta</option>
+
+                                                        <option value="mw">Malawi</option>
+
+                                                        <option value="xc">Malediwy</option>
+
+                                                        <option value="my">Malezja</option>
+
+                                                        <option value="ml">Mali</option>
+
+                                                        <option value="mm">Malta</option>
+
+                                                        <option value="nw">Mariany Północne</option>
+
+                                                        <option value="mr">Maroko</option>
+
+                                                        <option value="xe">Marshalla i Powiernicze</option>
+
+                                                        <option value="mq">Martynika</option>
+
+                                                        <option value="mu">Mauretania</option>
+
+                                                        <option value="mf">Mauritius</option>
+
+                                                        <option value="mx">Meksyk</option>
+
+                                                        <option value="xf">Midway</option>
+
+                                                        <option value="fm">Mikronezja</option>
+
+                                                        <option value="mv">Mołdawia</option>
+
+                                                        <option value="mc">Monako</option>
+
+                                                        <option value="mp">Mongolia</option>
+
+                                                        <option value="mj">Montserrat</option>
+
+                                                        <option value="mz">Mozambik</option>
+
+                                                        <option value="sx">Namibia</option>
+
+                                                        <option value="nu">Nauru</option>
+
+                                                        <option value="np">Nepal</option>
+
+                                                        <option value="gw">Niemcy</option>
+
+                                                        <option value="ng">Niger</option>
+
+                                                        <option value="nr">Nigeria</option>
+
+                                                        <option value="nq">Nikaragua</option>
+
+                                                        <option value="xh">Niue</option>
+
+                                                        <option value="nx">Norfolk</option>
+
+                                                        <option value="no">Norwegia</option>
+
+                                                        <option value="nl">Nowa Kaledonia</option>
+
+                                                        <option value="nz">Nowa Zelandia</option>
+
+                                                        <option value="mk">Oman</option>
+
+                                                        <option value="fa">Owcze Wyspy</option>
+
+                                                        <option value="pk">Pakistan</option>
+
+                                                        <option value="pw">Palau</option>
+
+                                                        <option value="pn">Panama</option>
+
+                                                        <option value="pp">Papua-Nowa Gwinea</option>
+
+                                                        <option value="pf">Paracelskie</option>
+
+                                                        <option value="py">Paragwaj</option>
+
+                                                        <option value="pe">Peru</option>
+
+                                                        <option value="pc">Pitcairn</option>
+
+                                                        <option value="fp">Polinezja Francuska</option>
+
+                                                        <option value="pr">Portoryko</option>
+
+                                                        <option value="po">Portugalia</option>
+
+                                                        <option value="sa">Rep. Połud. Afryki</option>
+
+                                                        <option value="cv">Republ.Ziel.Przylądka</option>
+
+                                                        <option value="cx">Republika Środkowoafr.</option>
+
+                                                        <option value="re">Reunion</option>
+
+                                                        <option value="ru">Rosja</option>
+
+                                                        <option value="vp">różne kraje</option>
+
+                                                        <option value="rm">Rumunia</option>
+
+                                                        <option value="rw">Rwanda</option>
+
+                                                        <option value="ss">Sahara Zachodnia</option>
+
+                                                        <option value="xd">Saint Kitts-Nevis</option>
+
+                                                        <option value="xk">Saint Lucia</option>
+
+                                                        <option value="xm">Saint Vincent i Grenadyny</option>
+
+                                                        <option value="xl">Saint-Pierre i Miquelon</option>
+
+                                                        <option value="bp">Salomona</option>
+
+                                                        <option value="es">Salwador</option>
+
+                                                        <option value="ws">Samoa</option>
+
+                                                        <option value="as">Samoa Ameryk.</option>
+
+                                                        <option value="sm">San Marino</option>
+
+                                                        <option value="xs">Sandwich Południowy</option>
+
+                                                        <option value="sg">Senegal</option>
+
+                                                        <option value="rb">Serbia</option>
+
+                                                        <option value="se">Seszele</option>
+
+                                                        <option value="sl">Sierra Leone</option>
+
+                                                        <option value="si">Singapur</option>
+
+                                                        <option value="xo">Słowacja</option>
+
+                                                        <option value="xv">Słowenia</option>
+
+                                                        <option value="so">Somalia</option>
+
+                                                        <option value="xp">Spratly</option>
+
+                                                        <option value="ce">Sri Lanka</option>
+
+                                                        <option value="us">Stany Zjednoczone</option>
+
+                                                        <option value="gz">Strefa Gazy</option>
+
+                                                        <option value="iy">Strefa Neutr.Irak/AS</option>
+
+                                                        <option value="sq">Suazi</option>
+
+                                                        <option value="sj">Sudan</option>
+
+                                                        <option value="sr">Surinam</option>
+
+                                                        <option value="sf">Św. Tomasza i Ks.Wysp.</option>
+
+                                                        <option value="xj">Święta Helena</option>
+
+                                                        <option value="sy">Syria</option>
+
+                                                        <option value="sz">Szwajcaria</option>
+
+                                                        <option value="sw">Szwecja</option>
+
+                                                        <option value="ta">Tadżykistan</option>
+
+                                                        <option value="th">Tajlandia</option>
+
+                                                        <option value="tz">Tanzania</option>
+
+                                                        <option value="em">Timor Wschodni</option>
+
+                                                        <option value="tg">Togo</option>
+
+                                                        <option value="tl">Tokelau</option>
+
+                                                        <option value="to">Tonga</option>
+
+                                                        <option value="tr">Trynidad i Tobago</option>
+
+                                                        <option value="ti">Tunezja</option>
+
+                                                        <option value="tu">Turcja</option>
+
+                                                        <option value="tk">Turkmenistan</option>
+
+                                                        <option value="tc">Turks i Caicos</option>
+
+                                                        <option value="tv">Tuvalu</option>
+
+                                                        <option value="ug">Uganda</option>
+
+                                                        <option value="un">Ukraina</option>
+
+                                                        <option value="uy">Urugwaj</option>
+
+                                                        <option value="uz">Uzbekistan</option>
+
+                                                        <option value="nn">Vanuatu</option>
+
+                                                        <option value="wk">Wake</option>
+
+                                                        <option value="wf">Wallis i Futuna</option>
+
+                                                        <option value="vc">Watykan</option>
+
+                                                        <option value="hu">Węgry</option>
+
+                                                        <option value="ve">Wenezuela</option>
+
+                                                        <option value="gb">Wielka Brytania</option>
+
+                                                        <option value="vm">Wietnam</option>
+
+                                                        <option value="it">Włochy</option>
+
+                                                        <option value="iv">Wyb. Kości Słoniowej</option>
+
+                                                        <option value="up">Wyspy Pacyfiku US</option>
+
+                                                        <option value="wj">Zachodni Brzeg Jordanu</option>
+
+                                                        <option value="za">Zambia</option>
+
+                                                        <option value="rh">Zimbabwe</option>
+
+                                                        <option value="ts">Zjedn. Emiraty Arabskie</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2 poleInne" style="display:none;">
+                                                <div class="col-12">
+                                                    <label>Nr dokumentu tożsamości okazanego przy rejestracji w bibliotece:</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2 poleInne" style="display:none;">
+                                                <div class="col-12">
+                                                    <input type="text" id="rejestracja_nr_dokumentu" name="nrDokumentu" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <label>Nr karty bibliotecznej:</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <input type="text" id="rejestracja_nr_karty" name="nrKarty" class="form-control" />
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <div class="col-12">
+                                                    <div class="custom-control custom-checkbox custom-control-inline">
+                                                        <input type="checkbox" class="custom-control-input" id="rejestracja_regulamin_akceptacja" name="regulaminAkceptacja" value="true" />
+                                                        <label for="rejestracja_regulamin_akceptacja" class="custom-control-label">Akceptuję regulamin świadczenia usługi drogą elektroniczną</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-12">
+                                                    <a target="_blank" href="http://www.makplus.pl/images/makplus/pliki/regulamin_swiadczenia_uslug_droga_elektroniczna_szukamksiazki_2018.pdf">Pobierz regulamin</a>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <div class="custom-control custom-checkbox custom-control-inline">
+                                                        <input type="checkbox" class="custom-control-input" id="rejestracja_zgoda_do" name="zgodaPrzetwarzanie" value="true" />
+                                                        <label for="rejestracja_zgoda_do" class="custom-control-label">Wyrażam zgodę na przetwarzanie moich danych osobowych, w tym weryfikację poprawności podanych danych osobowych przez Instytut Książki (ul. Z. Wróblewskiego 6, 31-148 Kraków) w celu korzystania z serwisu szukamksiążki.pl na zasadach określonych w Regulaminie</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <div class="custom-control custom-checkbox custom-control-inline">
+                                                        <input type="checkbox" class="custom-control-input" id="rejestracja_zgoda_marketing" name="zgodaMarketing" value="true"  />
+                                                        <label for="rejestracja_zgoda_marketing" class="custom-control-label">Wyrażam zgodę na przesyłanie przez Instytut Książki na mój adres e-mail materiałów promocyjnych, w tym informacji o organizowanych przez Instytut konkursach, w których mogę wziąć udział.</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <div class="col-7">
+                                                    <button type="button" onclick="zarejestruj();" class="btn btn-primary">zarejestruj</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="col-6 bgcolor4 kontoZaloz" style="display:none">
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <label>Login:</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <input type="text" onchange="poprawLogin('rejestracja_login')" id="rejestracja_login" name="login" class="form-control" />
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <label>Hasło:</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <input type="password" id="rejestracja_haslo" name="haslo" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <label>Powtórz hasło:</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-12">
+                                                    <input type="password" id="rejestracja_powtorz_haslo" name="powtorzHaslo" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="row-mt-4">
+                                                <div class="col-12">
+                                                    Instytut Książki informuje, że Pani/Pana dane mogą być udostępniane tylko podmiotom upoważnionym na podstawie przepisów prawa, przysługuje Panu/Pani prawo poprawiania swoich danych. Podanie danych zaznaczonych gwiazdką jest dobrowolne, jednakże niezbędne do założenia Internetowego Konta Czytelnika. Wyrażenie zgody na przetwarzanie danych w celach promocyjnych jest dobrowolne i nie ma wpływu na korzystanie z usługi.
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><a href="/SkNewWeb/start" style="display:none;" id="stronaGlowna2"></a>
+
+    <script>
+
+        function zarejestruj()
+        {
+            if ($("#rejestracja_form").valid())
+            {
+                $.ajax({
+                      dataType: "json",
+                      type: "POST",
+                      error: function( response,status,error ) {
+                          waitEnd();
+                          alertModal("Wystąpił błąd: " +status);
+
+                      },
+                      data: $("#rejestracja_form").serialize(),
+                      beforeSend: function(request) {
+                            request.setRequestHeader($("meta[name='_csrf_header']").attr("content"),$("meta[name='_csrf']").attr("content"));
+                          },
+                      url: pageContext+"/account/register",
+                      async:true,
+                      success: function( response ) {
+                          waitEnd();
+                          if (response["error"]!=null)
+                          {
+                              $("#modal_login").modal("hide");
+                              alertModalCallback(response["error"], function(){$("#modal_login").modal("show");});
+                          }
+                          else
+                          {
+                              $("#modal_login").modal("hide");
+                              alertModalCallback("Konto zostało założone pomyślnie. Zaloguj się do systemu.", function(){
+                                  $("#zalogujKolumna").show();
+                                    $("#kontoPytanie").show();
+                                    $(".kontoZaloz").hide();
+                                    $("#modal_login").modal("show");
+                              });
+
+                          }
+                      }
+                      });
+
+            }
+        }
+
+        function obywatelstwoChanged()
+        {
+            if ($("#obywatelstwo_polskie").prop("checked"))
+            {
+                $(".polePolskie").show();
+                $(".poleInne").hide();
+
+            }
+            else
+            {
+                $(".polePolskie").hide();
+                $(".poleInne").show();
+            }
+        }
+
+        function radioLoginChanged()
+        {
+            if ($("#karta_nie").prop("checked"))
+            {
+                $("#info1").hide();
+                $("#info2").show();
+
+            }
+            else
+            {
+                $("#zalogujKolumna").hide();
+                $("#kontoPytanie").hide();
+                $(".kontoZaloz").show();
+
+
+            }
+        }
+
+            $(document).ready(function(){
+                $("#rejestracja_form").validate({rules:{
+                    obywatelstwo: {required:true},
+                    nrKarty: {required:true},
+                    regulaminAkceptacja: {required:true},
+                    zgodaPrzetwarzanie: {required:true},
+                    haslo: {required:true, minlength: 8},
+                    powtorzHaslo: {required:true, minlength: 8, equalTo:"#rejestracja_haslo"},
+                    login:{required:true, loginUniqueId: '' },
+                    pesel:{required:"#obywatelstwo_polskie:checked"},
+                    nrDokumentu:{required:"#obywatelstwo_inne:checked"}
+
+                }});
+
+
+                $("#logowanie_form").validate({rules:{
+                    logowanie_login: {required:true},
+                    logowanie_haslo: {required:true}
+                }});
+            });
+
+    </script>
+
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="alertModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body p-3">
+                    <p class="h5" id="alertMsg"></p>
+                    <button onclick="alertClose()" class="btn btn-primary">zamknij okno</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function alertClose() {
+            $("#alertModal").modal("hide");
+            if (alertCallback != null)
+                alertCallback();
+        }
+        var alertCallback = null;
+        function alertModal(msg) {
+            alertCallback = null;
+            $("#alertMsg").html(msg);
+            $("#alertModal").modal();
+        }
+        function alertModalCallback(msg, callback) {
+            alertCallback = callback;
+            $("#alertMsg").html(msg);
+            $("#alertModal").modal();
+        }
+    </script>
+
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="confirmModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><i aria-hidden="true" class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body p-3">
+                    <p class="h4" id="alertBodyConfirm"></p>
+                    <button onclick="confirmYes();" class="btn btn-primary">tak</button>
+                    <button onclick="confirmNo();" class="btn btn-primary">nie</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var confirmCallbackYes = null;
+        var confirmCallbackNo = null;
+
+        function confirmModalCallback(msg,callbackYes,callbackNo)
+        {
+            confirmCallbackYes = callbackYes;
+            confirmCallbackNo = callbackNo;
+            $("#alertBodyConfirm").html(msg);
+            $("#confirmModal").modal();
+        }
+        function confirmYes()
+        {
+            $("#confirmModal").modal("hide");
+            if (confirmCallbackYes!=null)
+                confirmCallbackYes();
+        }
+
+        function confirmNo()
+        {
+            $("#confirmModal").modal("hide");
+            if (confirmCallbackNo!=null)
+                confirmCallbackNo();
+        }
+
+
+    </script>
+</footer>
+
+
+
+<script>
+    function waitStart() {
+        $("#searchValiMsg").empty();
+        $("#waitDialog").modal();
+        $("body").css("cursor", "progress");
+        return true;
+    }
+
+    function waitStartCheck() {
+        kom = '';
+        if (document.getElementById('szukaj_tytul').value.length == 0 && document.getElementById('szukaj_autor').value.length == 0) kom = kom+ 'Brak tytułu lub autora\n';
+        if (!(document.getElementById('szukaj_tytul').value.length == 0  || document.getElementById('szukaj_tytul').value.length > 3)) kom = kom + 'Za mało znaków w polu tytuł\n';
+        if (!(document.getElementById('szukaj_autor').value.length == 0  || document.getElementById('szukaj_autor').value.length > 3)) kom = kom + 'Za mało znaków w polu autor\n';
+        if (document.getElementById('szukaj_haslo').value.length > 0 || document.getElementById('szukaj_gatunek').value.length > 0 || document.getElementById('szukaj_slowo_kluczowe').value.length > 0 || document.getElementById('szukaj_isbn').value.length > 0 ||  document.getElementById('szukaj_rok_wydania').value.length > 0) kom = '';
+        if (kom == "") {
+            $("#searchValiMsg").empty();
+            $("#searchMsgRow").hide();
+            $("#waitDialog").modal();
+            $("body").css("cursor", "progress");
+            return true;
+        }
+        else {
+            $("#searchValiMsg").text(kom);
+            $("#searchMsgRow").show();
+            return false;
+        }
+    }
+
+    function waitEnd()
+    {
+        $("#waitDialog").modal("hide");
+        $("body").css("cursor", "default");
+    }
+    $(document).ready(function(){
+    $(window).on('unload',function(e){waitEnd();});
+    });
+
+</script>
+
+<div class="modal" data-backdrop="static" data-keyboard="false" role="dialog" id="waitDialog">
+    <div class="modal-dialog modal-m modal-dialog-centered" style="width:200px;">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p class="my-3"><span class="ski-wait" style="font-size:48px"></span><br/>
+                    <i class="fas fa-spinner fa-spin "></i> Proszę czekać...
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/SkNewWeb/" id="pageContext" style="display:none;"></a>
+<script>
+    var pageContext = document.getElementById('pageContext').href;
+    pageContext = pageContext.substring(0, pageContext.length - 1);
+</script>
+</body>
+</html>
