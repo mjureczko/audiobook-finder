@@ -6,6 +6,7 @@ import org.apache.commons.csv.CSVPrinter
 import java.io.BufferedWriter
 import java.io.FileWriter
 import org.jsoup.Jsoup
+import pl.marianjureczko.finder.INPUT_FILE
 
 data class Book(val title: String, val author: String)
 
@@ -29,8 +30,7 @@ fun extractBooks(): List<Book> {
 }
 
 fun saveToCsv(books: List<Book>) {
-    val fileName = "books.csv"
-    BufferedWriter(FileWriter(fileName)).use { writer ->
+    BufferedWriter(FileWriter(INPUT_FILE)).use { writer ->
         val csvPrinter = CSVPrinter(writer, CSV_FORMAT)
         books.forEach { csvPrinter.printRecord(it.title, it.author) }
         csvPrinter.flush()

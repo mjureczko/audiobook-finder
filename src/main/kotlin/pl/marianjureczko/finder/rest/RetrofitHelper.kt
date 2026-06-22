@@ -1,5 +1,7 @@
 package pl.marianjureczko.finder.rest
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -31,5 +33,16 @@ object RetrofitHelper {
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
+    }
+
+    fun getLenientRetrofitClient(
+        baseUrl: String,
+        additionalInterceptors: List<Interceptor> = emptyList()
+    ): Retrofit {
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+
+        return getRetrofitClient(baseUrl, additionalInterceptors, GsonConverterFactory.create(gson))
     }
 }
