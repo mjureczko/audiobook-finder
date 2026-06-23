@@ -26,21 +26,23 @@ class SearchExecutor {
 
     fun sourceTypes(): List<String> = finders.flatMap { it.sourceTypes() }
 
-    fun execute(books: List<Pair<String, String>>, consumer: BookResultsHandler) {
-        books.forEach { (title, author) ->
+    fun execute(books: List<PreprocessedBook>, consumer: BookResultsHandler) {
+        books.forEach { book ->
             val allResults = mutableListOf<Found>()
             runBlocking {
                 val deferredResults = finders.map { finder ->
                     async(Dispatchers.IO) {
-                        finder.findBook(title, author)
+                        // Use only English title for searching
+                        finder.findBook(book.titleEn, book.author)
                     }
                 }
                 deferredResults.forEach { deferred ->
                     allResults.addAll(deferred.await())
                 }
             }
-            consumer.consume(title, allResults)
-            println("$title - DONE")
+            // Use English title for output
+            consumer.consume(book.titleEn, allResults)
+            println("${book.titleEn} - DONE")
         }
     }
 }

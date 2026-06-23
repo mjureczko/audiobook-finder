@@ -5,6 +5,9 @@ import org.apache.commons.csv.CSVParser
 import pl.marianjureczko.finder.preprocessing.InputPreprocessor
 import java.nio.file.Files
 import java.nio.file.Paths
+import java.io.BufferedWriter
+import java.io.FileWriter
+import org.apache.commons.csv.CSVPrinter
 
 const val INPUT_FILE = "books.csv"
 const val PREPROCESSED_FILE = "books2.csv"
@@ -18,25 +21,24 @@ fun main() {
     val preprocessor = InputPreprocessor()
     preprocessor.preprocessBooks()
 
-    // Step 2: Load preprocessed books (using Polish titles for now)
-    val fileName = OUTPUT_FILE
-//    val books = loadPreprocessedBooks()
-//    val executor = SearchExecutor()
-//
-//    val headers = executor.sourceTypes()
-//    val csvFormat = createCsvFormat(headers)
-//
-//    BufferedWriter(FileWriter(fileName)).use { writer ->
-//        val csvPrinter = CSVPrinter(writer, csvFormat)
-//        executor.execute(books, object: BookResultsHandler {
-//            override fun consume(title: String, results: List<Found>) {
-//                val resultsByType = results.associateBy { it.sourceType }
-//                val record = listOf(title) + headers.map { resultsByType[it]?.link ?:"" }
-//                csvPrinter.printRecord(record)
-//                csvPrinter.flush()
-//            }
-//        })
-//    }
+    // Step 2: Load preprocessed books and search using English titles
+    val books = loadPreprocessedBooks()
+    val executor = SearchExecutor()
+
+    val headers = executor.sourceTypes()
+    val csvFormat = createCsvFormat(headers)
+
+    BufferedWriter(FileWriter(OUTPUT_FILE)).use { writer ->
+        val csvPrinter = CSVPrinter(writer, csvFormat)
+        executor.execute(books, object: BookResultsHandler {
+            override fun consume(title: String, results: List<Found>) {
+                val resultsByType = results.associateBy { it.sourceType }
+                val record = listOf(title) + headers.map { resultsByType[it]?.link ?:"" }
+                csvPrinter.printRecord(record)
+                csvPrinter.flush()
+            }
+        })
+    }
 
 }
 
@@ -47,15 +49,15 @@ private fun createCsvFormat(headers: List<String>): CSVFormat? {
     return formatBuilder.build()
 }
 
-private fun loadPreprocessedBooks(): List<Pair<String, String>> {
-    val books = mutableListOf<Pair<String, String>>()
+private fun loadPreprocessedBooks(): List<PreprocessedBook> {
+    val books = mutableListOf<PreprocessedBook>()
     Files.newBufferedReader(Paths.get(PREPROCESSED_FILE)).use { reader ->
         val csvParser = CSVParser(reader, CSVFormat.DEFAULT.withSkipHeaderRecord())
         for (csvRecord in csvParser) {
-            // Use Polish title for now (title_pl), author remains the same
-            val title = csvRecord.get("title_pl")
+            val titlePl = csvRecord.get("title_pl")
+            val titleEn = csvRecord.get("title_en")
             val author = runCatching { csvRecord.get("author") }.getOrDefault("")
-            books.add(title to author)
+            books.add(PreprocessedBook(titlePl, titleEn, author))
         }
     }
     return books
