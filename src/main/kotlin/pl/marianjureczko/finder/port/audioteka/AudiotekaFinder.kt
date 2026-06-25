@@ -18,6 +18,6 @@ class AudiotekaFinder : FinderTemplate<AudiotekaResponse>(listOf(AUDIOTEKA, KLUB
 
     override fun getRestCall(title: String): Call<AudiotekaResponse> = api.searchBookByTitle(HASH, title)
 
-    override fun analyseResponse(resultBody: AudiotekaResponse, title: String, sourceType: String): String =
+    override fun analyseResponse(resultBody: AudiotekaResponse, title: String, sourceType: String, author: String): String =
         responseAnalyser.execute(resultBody, title, KLUB == sourceType)
 }

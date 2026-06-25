@@ -23,12 +23,22 @@ package pl.marianjureczko.finder.port.storytell
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import pl.marianjureczko.finder.port.oreilly.OREILLY_AUDIOBOOK
+import pl.marianjureczko.finder.port.oreilly.OREILLY_BOOK
 import pl.marianjureczko.finder.port.storytell.StorytellFinder
 
 class StorytellFinderTest {
     @Test
     fun storytell() {
+        //given
         val finder = StorytellFinder()
-        finder.findTitle("Red dragon")
+
+        //when
+        val actual = finder.findBook("Red dragon", "czerwony smok", "Harris")
+
+        //then
+        assertEquals(1, actual.size)
+        assertEquals("Storytell", actual[0].sourceType)
+        assertEquals("https://www.storytel.com/pl/books/red-dragon-212173?utm_source=internal&utm_medium=app_link&utm_campaign=share_links", actual[0].link)
     }
 }

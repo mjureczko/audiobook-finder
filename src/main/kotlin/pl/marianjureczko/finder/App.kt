@@ -21,8 +21,8 @@ const val CSV_HEADER_ORIGINAL_TITLE = "original_title"
 
 fun main() {
     // Step 1: Preprocess the input books
-    val preprocessor = InputPreprocessor()
-    preprocessor.preprocessBooks()
+//    val preprocessor = InputPreprocessor()
+//    preprocessor.preprocessBooks()
 
     // Step 2: Load preprocessed books and search using English titles
     val books = loadPreprocessedBooks()

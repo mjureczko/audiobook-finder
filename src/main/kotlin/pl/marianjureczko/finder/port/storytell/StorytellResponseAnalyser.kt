@@ -19,9 +19,8 @@ class StorytellResponseAnalyser {
         if (queryAuthor.isEmpty()) return true
         val authors = item.authors
         if (authors.isNullOrEmpty()) return true
-        val surname = queryAuthor.substringBefore(",").trim().lowercase()
         return authors.any { author ->
-            author.name?.lowercase()?.contains(surname) == true
+            author.name?.lowercase()?.contains(queryAuthor.lowercase()) == true
         }
     }
 }

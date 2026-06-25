@@ -1,0 +1,7 @@
+{
+  "autoApprove": {
+    "commands": [
+      "./mvn-compile.sh"
+    ]
+  }
+}

@@ -31,7 +31,7 @@ class AudibleFinderTest {
         val finder = AudibleFinder()
 
         //when
-        val actual = finder.findTitle("red dragon")
+        val actual = finder.findBook("red dragon", "czerwony smok", "")
 
         //then
         assertEquals(1, actual.size)

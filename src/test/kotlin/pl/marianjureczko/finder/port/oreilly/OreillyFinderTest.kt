@@ -31,7 +31,7 @@ class OreillyFinderTest {
         val finder = OreillyFinder()
 
         //when
-        val actual = finder.findTitle("Introducing Python")
+        val actual = finder.findBook("Introducing Python", "Wprowadzenie do Pythona", "Lubanovic")
 
         //then
         assertEquals(2, actual.size)

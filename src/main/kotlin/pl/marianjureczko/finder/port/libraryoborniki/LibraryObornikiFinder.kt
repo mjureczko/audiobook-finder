@@ -16,13 +16,11 @@ class LibraryObornikiFinder : Finder {
 
     override fun sourceTypes() = listOf("LibraryOborniki")
 
-    override fun findTitle(title: String) = findBook(title, "")
-
-    override fun findBook(title: String, author: String): List<Found> {
+    override fun findBook(titleEn: String, titlePl: String, author: String): List<Found> {
         return try {
-            val response = api.search(title, author, LibraryObornikiApi.SECTIONS, LibraryObornikiApi.LIBRARY_ID).execute()
+            val response = api.search(titlePl, author, LibraryObornikiApi.SECTIONS, LibraryObornikiApi.LIBRARY_ID).execute()
             if (response.isSuccessful) {
-                val link = response.body()?.let { responseAnalyser.execute(it, title) } ?: ""
+                val link = response.body()?.let { responseAnalyser.execute(it, titlePl) } ?: ""
                 listOf(Found("LibraryOborniki", link))
             } else {
                 listOf(Found("LibraryOborniki", "ERROR"))

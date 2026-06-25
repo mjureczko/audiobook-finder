@@ -13,6 +13,6 @@ class BookbeatFinder : FinderTemplate<BookbeatResponse>(listOf("Bookbeat")) {
 
     override fun getRestCall(title: String): Call<BookbeatResponse> = api.searchBookByTitle(title, title)
 
-    override fun analyseResponse(resultBody: BookbeatResponse, title: String, sourceType: String): String =
+    override fun analyseResponse(resultBody: BookbeatResponse, title: String, sourceType: String, author: String): String =
         responseAnalyser.execute(resultBody, title)
 }

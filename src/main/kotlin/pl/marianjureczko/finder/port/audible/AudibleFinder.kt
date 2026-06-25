@@ -14,6 +14,6 @@ class AudibleFinder : FinderTemplate<String>(listOf("Audible")) {
 
     override fun getRestCall(title: String): Call<String> =api.searchBookByTitle(title)
 
-    override fun analyseResponse(resultBody: String, title: String, sourceType: String): String =
+    override fun analyseResponse(resultBody: String, title: String, sourceType: String, author: String): String =
         responseAnalyser.execute(resultBody, title)
 }

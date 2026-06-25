@@ -10,7 +10,8 @@ data class Book(
     val format: String,
     val language: String,
     val title: String,
-    val web_url: String
+    val web_url: String,
+    val authors: List<String>? = null
 ) : SimpleBook {
     override fun title(): String = title
 

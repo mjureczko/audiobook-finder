@@ -16,12 +16,12 @@ class OreillyFinder: FinderTemplate<OreillyResponse>(
     override fun getRestCall(title: String): Call<OreillyResponse> =
         api.searchBookByTitle("title:"+title)
 
-    override fun analyseResponse(resultBody: OreillyResponse, title: String, sourceType: String): String {
+    override fun analyseResponse(resultBody: OreillyResponse, title: String, sourceType: String, author: String): String {
         val expectedContent = if(OREILLY_BOOK == sourceType) {
             "book"
         } else {
             "audiobook"
         }
-        return responseAnalyser.execute(resultBody, title, expectedContent)
+        return responseAnalyser.execute(resultBody, title, expectedContent, author)
     }
 }

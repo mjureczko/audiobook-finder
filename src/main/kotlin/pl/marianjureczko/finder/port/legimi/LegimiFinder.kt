@@ -18,7 +18,7 @@ class LegimiFinder : FinderTemplate<LegimiResponse>(
     private val api: LegimiApi = retrofit.create(LegimiApi::class.java)
     private val responseAnalyser = LegimiResponseAnalyser()
     override fun getRestCall(title: String): Call<LegimiResponse> = api.searchBookByTitle(title)
-    override fun analyseResponse(resultBody: LegimiResponse, title: String, sourceType: String): String {
+    override fun analyseResponse(resultBody: LegimiResponse, title: String, sourceType: String, author: String): String {
         val filter: (Book) -> Boolean = {
             if (LEGIMI_AUDIOBOOK == sourceType) {
                 it.audiobookFormat

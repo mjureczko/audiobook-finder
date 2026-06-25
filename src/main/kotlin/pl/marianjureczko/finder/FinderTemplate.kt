@@ -7,17 +7,17 @@ abstract class FinderTemplate<T>(
     private val sourceTypes: List<String>
 ) : Finder {
     protected abstract fun getRestCall(title: String): Call<T>
-    protected abstract fun analyseResponse(resultBody: T, title: String, sourceType: String): String
+    protected abstract fun analyseResponse(resultBody: T, title: String, sourceType: String, author: String): String
 
-    override fun findTitle(title: String): List<Found> {
-        val call: Call<T> = getRestCall(title)
+    override fun findBook(titleEn: String, titlePl: String, author: String): List<Found> {
+        val call: Call<T> = getRestCall(titleEn)
         try {
             val response: Response<T> = call.execute()
             if (response.isSuccessful) {
                 val resultBody: T? = response.body()
                 return sourceTypes
                     .map { sourceType ->
-                        val link = resultBody?.let { analyseResponse(it, title, sourceType) } ?: ""
+                        val link = resultBody?.let { analyseResponse(it, titleEn, sourceType, author) } ?: ""
                         Found(sourceType, link)
                     }
             } else {

@@ -31,7 +31,7 @@ class AudiotekaFinderTest {
         val finder = AudiotekaFinder()
 
         //when
-        val actual = finder.findTitle("czerwony alert")
+        val actual = finder.findBook("red alert", "czerwony alert", "")
 
         //then
         assertEquals(actual.size, 2)

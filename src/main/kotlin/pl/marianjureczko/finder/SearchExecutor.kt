@@ -15,13 +15,13 @@ interface BookResultsHandler {
 
 class SearchExecutor {
     private val finders: List<Finder> = listOf(
-        StorytellFinder(),
-        BookbeatFinder(),
-        AudibleFinder(),
-        LegimiFinder(),
-        AudiotekaFinder(),
+//        StorytellFinder(),
+//        BookbeatFinder(),
+//        AudibleFinder(),
+//        LegimiFinder(),
+//        AudiotekaFinder(),
         OreillyFinder(),
-        LibraryObornikiFinder()
+//        LibraryObornikiFinder()
     )
 
     fun sourceTypes(): List<String> = finders.flatMap { it.sourceTypes() }
@@ -32,17 +32,15 @@ class SearchExecutor {
             runBlocking {
                 val deferredResults = finders.map { finder ->
                     async(Dispatchers.IO) {
-                        // Use only English title for searching
-                        finder.findBook(book.titleEn, book.author)
+                        finder.findBook(book.titleEn, book.titlePl, book.author)
                     }
                 }
                 deferredResults.forEach { deferred ->
                     allResults.addAll(deferred.await())
                 }
             }
-            // Use English title for output
-            consumer.consume(book.titleEn, allResults)
-            println("${book.titleEn} - DONE")
+            consumer.consume(book.originalTitle, allResults)
+            println("${book.originalTitle} - DONE")
         }
     }
 }
