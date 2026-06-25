@@ -2,6 +2,9 @@ package pl.marianjureczko.finder.preprocessing
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
+import pl.marianjureczko.finder.CSV_HEADER_AUTHOR
+import pl.marianjureczko.finder.CSV_HEADER_TITLE_EN
+import pl.marianjureczko.finder.CSV_HEADER_TITLE_PL
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.test.assertTrue
@@ -28,12 +31,12 @@ Diplomacy,"Kissinger, Henry"
         assertTrue(Files.exists(outputFile), "Output file should be created")
         val outputContent = Files.readString(outputFile)
 
-        assertTrue(outputContent.contains("title_pl"), "Output should contain title_pl column")
-        assertTrue(outputContent.contains("title_en"), "Output should contain title_en column")
-        assertTrue(outputContent.contains("author"), "Output should contain author column")
-        assertTrue(outputContent.contains("Adler-Olsen"), "Output should contain 1st author data")
+        assertTrue(outputContent.contains(CSV_HEADER_TITLE_PL), "Output should contain title_pl column")
+        assertTrue(outputContent.contains(CSV_HEADER_TITLE_EN), "Output should contain title_en column")
+        assertTrue(outputContent.contains(CSV_HEADER_AUTHOR), "Output should contain author column")
+        assertTrue(outputContent.contains(",Adler-Olsen\r\n"), "Output should contain 1st author data")
         assertTrue(outputContent.contains("The Shadow Murders"), "Output should contain 1st english title")
-        assertTrue(outputContent.contains("Kissinger"), "Output should contain 2nd author data")
+        assertTrue(outputContent.contains(",Kissinger\r\n"), "Output should contain 2nd author data")
         assertTrue(outputContent.contains("Diplomacy"), "Output should contain 2nd english title")
         assertTrue( outputContent.contains("Dyplomacja"), "Output should contain 2nd title polish")
     }

@@ -19,9 +19,8 @@ class LibraryObornikiFinder : Finder {
     override fun findTitle(title: String) = findBook(title, "")
 
     override fun findBook(title: String, author: String): List<Found> {
-        val surname = author.substringBefore(",").trim()
         return try {
-            val response = api.search(title, surname, LibraryObornikiApi.SECTIONS, LibraryObornikiApi.LIBRARY_ID).execute()
+            val response = api.search(title, author, LibraryObornikiApi.SECTIONS, LibraryObornikiApi.LIBRARY_ID).execute()
             if (response.isSuccessful) {
                 val link = response.body()?.let { responseAnalyser.execute(it, title) } ?: ""
                 listOf(Found("LibraryOborniki", link))

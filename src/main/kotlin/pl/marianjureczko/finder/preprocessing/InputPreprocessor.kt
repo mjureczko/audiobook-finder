@@ -3,6 +3,11 @@ package pl.marianjureczko.finder.preprocessing
 import org.apache.commons.csv.CSVFormat
 import org.apache.commons.csv.CSVParser
 import org.apache.commons.csv.CSVPrinter
+import pl.marianjureczko.finder.CSV_HEADER_AUTHOR
+import pl.marianjureczko.finder.CSV_HEADER_ORIGINAL_TITLE
+import pl.marianjureczko.finder.CSV_HEADER_TITLE
+import pl.marianjureczko.finder.CSV_HEADER_TITLE_EN
+import pl.marianjureczko.finder.CSV_HEADER_TITLE_PL
 import pl.marianjureczko.finder.INPUT_FILE
 import pl.marianjureczko.finder.PREPROCESSED_FILE
 import pl.marianjureczko.finder.preprocessing.port.libretranslate.TranslationService
@@ -26,8 +31,8 @@ class InputPreprocessor {
         Files.newBufferedReader(Paths.get(inputFile)).use { reader ->
             val csvParser = CSVParser(reader, CSV_FORMAT.withSkipHeaderRecord())
             for (csvRecord in csvParser) {
-                val originalTitle = csvRecord.get("title")
-                val author = runCatching { csvRecord.get("author") }.getOrDefault("")
+                val originalTitle = csvRecord.get(CSV_HEADER_TITLE)
+                val author = runCatching { csvRecord.get(CSV_HEADER_AUTHOR) }.getOrDefault("")
 
                 // Clean the title by removing brackets
                 val cleanedTitle = removeBrackets(originalTitle)
@@ -35,11 +40,17 @@ class InputPreprocessor {
                 // Use LibreTranslate to get both Polish and English versions
                 val (polishTitle, englishTitle) = translationService.translateTitle(cleanedTitle)
 
-                books.add(PreprocessedBook(
-                    titlePl = polishTitle,
-                    titleEn = englishTitle,
-                    author = author
-                ))
+                // Extract author surname for better search results
+                val authorSurname = extractAuthorSurname(author)
+
+                books.add(
+                    PreprocessedBook(
+                        titlePl = polishTitle,
+                        titleEn = englishTitle,
+                        originalTitle = originalTitle,
+                        author = authorSurname
+                    )
+                )
             }
         }
         return books
@@ -47,9 +58,12 @@ class InputPreprocessor {
 
     private fun savePreprocessedBooks(books: List<PreprocessedBook>, outputFile: String) {
         BufferedWriter(FileWriter(outputFile)).use { writer ->
-            val csvPrinter = CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("title_pl", "title_en", "author"))
+            val csvPrinter = CSVPrinter(
+                writer, CSVFormat.DEFAULT
+                    .withHeader(CSV_HEADER_TITLE_PL, CSV_HEADER_TITLE_EN, CSV_HEADER_ORIGINAL_TITLE, CSV_HEADER_AUTHOR)
+            )
             for (book in books) {
-                csvPrinter.printRecord(book.titlePl, book.titleEn, book.author)
+                csvPrinter.printRecord(book.titlePl, book.titleEn, book.originalTitle, book.author)
             }
             csvPrinter.flush()
         }
@@ -57,4 +71,8 @@ class InputPreprocessor {
 
     private fun removeBrackets(text: String): String =
         text.replace(Regex("""\([^)]*\)"""), "").replace(Regex("""\s+"""), " ").trim()
+
+    private fun extractAuthorSurname(author: String): String {
+        return author.substringBefore(",").trim()
+    }
 }

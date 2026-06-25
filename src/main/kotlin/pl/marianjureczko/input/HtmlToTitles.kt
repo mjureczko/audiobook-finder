@@ -6,11 +6,13 @@ import org.apache.commons.csv.CSVPrinter
 import java.io.BufferedWriter
 import java.io.FileWriter
 import org.jsoup.Jsoup
+import pl.marianjureczko.finder.CSV_HEADER_AUTHOR
+import pl.marianjureczko.finder.CSV_HEADER_TITLE
 import pl.marianjureczko.finder.INPUT_FILE
 
 data class Book(val title: String, val author: String)
 
-val CSV_FORMAT = CSVFormat.Builder.create().setHeader("title", "author").build()
+val CSV_FORMAT = CSVFormat.Builder.create().setHeader(CSV_HEADER_TITLE, CSV_HEADER_AUTHOR).build()
 
 fun main() {
     val books = extractBooks()
