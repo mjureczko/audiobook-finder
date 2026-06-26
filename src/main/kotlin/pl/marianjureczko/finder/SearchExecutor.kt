@@ -15,13 +15,15 @@ interface BookResultsHandler {
 
 class SearchExecutor {
     private val finders: List<Finder> = listOf(
-//        StorytellFinder(),
+        StorytellFinder(),
+        // neds update, API has changed
 //        BookbeatFinder(),
+        // neds update, a redirect has been added
 //        AudibleFinder(),
-//        LegimiFinder(),
+        LegimiFinder(),
 //        AudiotekaFinder(),
         OreillyFinder(),
-//        LibraryObornikiFinder()
+        LibraryObornikiFinder()
     )
 
     fun sourceTypes(): List<String> = finders.flatMap { it.sourceTypes() }

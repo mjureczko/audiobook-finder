@@ -14,8 +14,17 @@ data class Book(
     val title: String,
     val url: String,
     val ebookFormat: Boolean,
-    val audiobookFormat: Boolean
+    val audiobookFormat: Boolean,
+    val authors: List<Author>? = null
 ): SimpleBook {
     override fun title(): String =title
     override fun link(): String = url
 }
+
+data class Author(
+    val id: Int,
+    val name: String,
+    val key: String,
+    val url: String,
+    val description: String?
+)

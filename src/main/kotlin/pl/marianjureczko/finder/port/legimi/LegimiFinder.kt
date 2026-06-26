@@ -26,6 +26,6 @@ class LegimiFinder : FinderTemplate<LegimiResponse>(
                 it.ebookFormat
             }
         }
-        return responseAnalyser.execute(resultBody, title, filter)
+        return responseAnalyser.execute(resultBody, title, filter, author)
     }
 }

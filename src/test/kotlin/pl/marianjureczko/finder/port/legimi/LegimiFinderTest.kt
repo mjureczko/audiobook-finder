@@ -32,7 +32,7 @@ class LegimiFinderTest {
         val finder = LegimiFinder()
 
         //when
-        val actual = finder.findBook("The Maid's Diary", "Dziennik pokojówki", "")
+        val actual = finder.findBook("Dziennik pokojówki", "Dziennik pokojówki", "White")
 
         //then
         assertEquals(2, actual.size)
