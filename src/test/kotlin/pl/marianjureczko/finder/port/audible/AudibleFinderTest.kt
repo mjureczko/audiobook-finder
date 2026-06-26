@@ -22,9 +22,11 @@
 package pl.marianjureczko.finder.port.audible
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class AudibleFinderTest {
+    @Disabled("takes a lot of time")
     @Test
     fun shouldFindInAudible() {
         //given

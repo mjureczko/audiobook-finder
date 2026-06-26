@@ -20,11 +20,15 @@ const val CSV_HEADER_TITLE_EN = "title_en"
 const val CSV_HEADER_ORIGINAL_TITLE = "original_title"
 
 fun main() {
-    // Step 1: Preprocess the input books
-//    val preprocessor = InputPreprocessor()
-//    preprocessor.preprocessBooks()
+    prepareInputFile()
+    lookForBooksOnThePortals()
+}
 
-    // Step 2: Load preprocessed books and search using English titles
+private fun prepareInputFile() {
+    InputPreprocessor().preprocessBooks()
+}
+
+private fun lookForBooksOnThePortals() {
     val books = loadPreprocessedBooks()
     val executor = SearchExecutor()
 
@@ -33,16 +37,15 @@ fun main() {
 
     BufferedWriter(FileWriter(OUTPUT_FILE)).use { writer ->
         val csvPrinter = CSVPrinter(writer, csvFormat)
-        executor.execute(books, object: BookResultsHandler {
+        executor.execute(books, object : BookResultsHandler {
             override fun consume(title: String, results: List<Found>) {
                 val resultsByType = results.associateBy { it.sourceType }
-                val record = listOf(title) + headers.map { resultsByType[it]?.link ?:"" }
+                val record = listOf(title) + headers.map { resultsByType[it]?.link ?: "" }
                 csvPrinter.printRecord(record)
                 csvPrinter.flush()
             }
         })
     }
-
 }
 
 private fun createCsvFormat(headers: List<String>): CSVFormat? {

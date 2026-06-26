@@ -10,23 +10,31 @@ abstract class FinderTemplate<T>(
     protected abstract fun analyseResponse(resultBody: T, title: String, sourceType: String, author: String): String
 
     override fun findBook(titleEn: String, titlePl: String, author: String): List<Found> {
-        val call: Call<T> = getRestCall(titleEn)
+        val englishResults = searchByTitleAndAuthor(titleEn, author)
+
+        if (englishResults.all { it.link.isEmpty() }) {
+            return searchByTitleAndAuthor(titlePl, author)
+        }
+
+        return englishResults
+    }
+
+    private fun searchByTitleAndAuthor(title: String, author: String): List<Found> {
+        val call: Call<T> = getRestCall(title)
         try {
             val response: Response<T> = call.execute()
             if (response.isSuccessful) {
                 val resultBody: T? = response.body()
                 return sourceTypes
                     .map { sourceType ->
-                        val link = resultBody?.let { analyseResponse(it, titleEn, sourceType, author) } ?: ""
+                        val link = resultBody?.let { analyseResponse(it, title, sourceType, author) } ?: ""
                         Found(sourceType, link)
                     }
-            } else {
-                return errorResponse()
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            return errorResponse()
         }
+        return errorResponse()
     }
 
     override fun sourceTypes(): List<String> = sourceTypes
