@@ -37,7 +37,7 @@ class InputPreprocessorTest {
         // given
         val inputFile = tempDir.resolve("test_input.csv")
         val inputContent = """title,author
-"The Shadow Murders","Adler-Olsen, Jussi"
+"Kolekcjoner lalek (Lena, #1)","Bonda, Katarzyna"
 Diplomacy,"Kissinger, Henry"
 """.trimIndent()
         Files.write(inputFile, inputContent.toByteArray())
@@ -55,8 +55,9 @@ Diplomacy,"Kissinger, Henry"
         assertTrue(outputContent.contains(CSV_HEADER_TITLE_PL), "Output should contain title_pl column")
         assertTrue(outputContent.contains(CSV_HEADER_TITLE_EN), "Output should contain title_en column")
         assertTrue(outputContent.contains(CSV_HEADER_AUTHOR), "Output should contain author column")
-        assertTrue(outputContent.contains(",Adler-Olsen\r\n"), "Output should contain 1st author data")
-        assertTrue(outputContent.contains("The Shadow Murders"), "Output should contain 1st english title")
+        assertTrue(outputContent.contains(",Bonda\r\n"), "Output should contain 1st author data")
+        assertTrue(outputContent.contains("Doll collector"), "Output should contain 1st english title")
+        assertTrue(outputContent.contains("Kolekcjoner lalek"), "Output should contain 1st polish title")
         assertTrue(outputContent.contains(",Kissinger\r\n"), "Output should contain 2nd author data")
         assertTrue(outputContent.contains("Diplomacy"), "Output should contain 2nd english title")
         assertTrue( outputContent.contains("Dyplomacja"), "Output should contain 2nd title polish")

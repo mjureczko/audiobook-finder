@@ -16,13 +16,19 @@ interface BookResultsHandler {
 class SearchExecutor {
     private val finders: List<Finder> = listOf(
         StorytellFinder(),
+
         // neds update, API has changed
 //        BookbeatFinder(),
+
         // neds update, a redirect has been added
 //        AudibleFinder(),
+
         LegimiFinder(),
-//        AudiotekaFinder(),
+
+        AudiotekaFinder(),
+
         OreillyFinder(),
+
         LibraryObornikiFinder()
     )
 

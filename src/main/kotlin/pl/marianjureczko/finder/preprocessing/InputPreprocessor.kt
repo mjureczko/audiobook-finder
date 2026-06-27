@@ -34,19 +34,14 @@ class InputPreprocessor {
                 val originalTitle = csvRecord.get(CSV_HEADER_TITLE)
                 val author = runCatching { csvRecord.get(CSV_HEADER_AUTHOR) }.getOrDefault("")
 
-                // Clean the title by removing brackets
                 val cleanedTitle = removeBrackets(originalTitle)
-
-                // Use LibreTranslate to get both Polish and English versions
-                val (polishTitle, englishTitle) = translationService.translateTitle(cleanedTitle)
-
-                // Extract author surname for better search results
+                val translated = translationService.translateTitle(cleanedTitle)
                 val authorSurname = extractAuthorSurname(author)
 
                 books.add(
                     PreprocessedBook(
-                        titlePl = polishTitle,
-                        titleEn = englishTitle,
+                        titlePl = translated.pl,
+                        titleEn = translated.en,
                         originalTitle = originalTitle,
                         author = authorSurname
                     )

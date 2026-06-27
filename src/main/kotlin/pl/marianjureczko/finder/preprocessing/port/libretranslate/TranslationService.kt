@@ -10,8 +10,8 @@ class TranslationService(
     fun translateTitle(title: String): TranslatedTitle {
         return try {
             // Request translations in both directions
-            val englishTranslation = translateToEnglish(title)
-            val polishTranslation = translateToPolish(title)
+            val englishTranslation = translate(title, "pl|en")
+            val polishTranslation = translate(title, "en|pl")
 
             return TranslatedTitle(englishTranslation, polishTranslation)
         } catch (e: Exception) {
@@ -21,22 +21,9 @@ class TranslationService(
         }
     }
 
-    private fun translateToEnglish(title: String): String {
+    private fun translate(title: String, direction: String): String {
         return try {
-            val translationResponse = api.translate(title, "pl|en").execute()
-            if (translationResponse.isSuccessful) {
-                translationResponse.body()?.responseData?.translatedText ?: title
-            } else {
-                title
-            }
-        } catch (e: Exception) {
-            title
-        }
-    }
-
-    private fun translateToPolish(title: String): String {
-        return try {
-            val translationResponse = api.translate(title, "en|pl").execute()
+            val translationResponse = api.translate(title, direction).execute()
             if (translationResponse.isSuccessful) {
                 translationResponse.body()?.responseData?.translatedText ?: title
             } else {
